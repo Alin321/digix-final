@@ -35,7 +35,7 @@ body {
 
 </div>
 <div id="register">
-	<form method="post" action = "http://localhost:8082/digix-final/rest/register/create" name="regForm" id="regForm">
+	<form method="post" action = "/digix-final/rest/register/create" name="regForm" id="regForm">
 		First Name:<br> <input type="text" name="firstName" required/> <br>
 		Last Name:<br> <input type="text" name="lastName" required/> <br>
 		Email:<br> <input type="email" name="email" required/> <br>
