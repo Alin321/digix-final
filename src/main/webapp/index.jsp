@@ -6,19 +6,45 @@
 <head>
 
 <title>Insert title here</title>
+<style type="text/css">
+body {
+	background: url(imagini/background.jpg);
+}
+#header {
+	height: 50px;
+	width: 100%;
+}
+#register {
+	float:left;
+	width:40%;
+	height:800px;
+}
+#welcome {
+	float:left;
+	width:40%;
+	height:800px;
+}
 
+</style>
 </head>
 <body>
-<h1> TEXT ACILEA </h1>
-<br>
+<div id="header">
+<h1 style="width:100px; margin:auto;"> DigiX </h1>
+</div>
+<div id="welcome">
+
+</div>
+<div id="register">
 	<form method="post" action = "http://localhost:8082/digix-final/rest/register/create" name="regForm" id="regForm">
-		First Name: <input type="text" name="firstName" />
-		Last Name: <input type="text" name="lastName" />
-		Email: <input type="email" name="email" />
-		Password: <input type="password" name="password" />
+		First Name:<br> <input type="text" name="firstName" required/> <br>
+		Last Name:<br> <input type="text" name="lastName" required/> <br>
+		Email:<br> <input type="email" name="email" required/> <br>
+		Password:<br> <input type="password" name="password" required/> <br>
+		Birthday: <br> <input type="date" name="birthday" required />
+		
 		<input type="submit" value="Gata" />
 	</form>
 	
-	
+</div >
 </body>
 </html>
