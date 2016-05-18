@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DigiX</title>
+	<title>Log in</title>
 	<link href="styles/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="styles/log-in.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -22,22 +23,24 @@
 <!--.................................Continut ......................................... -->
 
 
-<section class="continut">
-	<div id="#log_in">
-		<figure>
-			<img src="toate-imaginile/wallpaper/dark_moon.jpg">
-		</figure>
+<section>
+	<form method="post" action = "/digix-final/rest/register/create" name="regForm" id="regForm">
+		<input type="text" name="e-mail" placeholder="e-mail"><br><br>
+		<input type="password" name="password" placeholder="password"><br><br>
 		
-		<div class="textBoxDate">
-			<form method="post" action = "/digix-final/rest/register/create" name="regForm" id="regForm">
-				<input type="text" name="e-mail" placeholder="e-mail"><br><br>
-				<input type="password" name="password" placeholder="password"><br><br>
-				<input type="submit" value="log in">
-			</form> 
-		</div>	
-	
-	</div>
+		<form action="afterLogIn.html" method="get">
+		<input type="submit" value="log in">
+		</form>
+
+		<br><br>
+
+		<form action="afterLogIn.html" method="get">
+    		<input id="facebook" type="submit" value="Log in with Facebook">
+		</form>
+
+	</form> 	
 </section>
+
 
 
 
@@ -45,8 +48,7 @@
 
 <!--........................................Footer..................................... -->
 <footer>
-	Copyright &#169; DigiX 2016. All rights reserved<br> Xo.Xo 
-
+	Copyright &#169; DigiX 2016. All rights reserved
 </footer>
 
 </body>

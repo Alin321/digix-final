@@ -7,7 +7,7 @@ body{ background-color: #eaece5; font-family: Georgia; width: 100%; color:#3b3a3
 header{
 	height: 75px;
 	width: 100%;
-	border-bottom:0px solid black;
+	border-bottom:1px solid #b2c2bf;
 }
 .nav{
 	padding-top: 27px;
@@ -17,7 +17,6 @@ header{
 	max-height: 75px;
 	position: absolute;
 	text-align: center;
-	border-bottom:1px solid black;
 	display: inline;
 	width: 100%;
 }
@@ -38,68 +37,14 @@ header{
 }
 
 
-
 /*------------------------------------FOOTER--------------------------------------- */
 
 
 footer{
-	background-color: #3b3a30;
-	color: #eaece5;
-	clear:both;
+	border-top:1px solid #b2c2bf;
+	background-color: #eaece5;
+	color: #3b3a30;
     text-align:center;
-    padding: 50px; 
+    padding: 50px;
 }
 
-/*....................................Continut..................................*/
-.continut img{
-	max-height: 568px;
-	float:left;
-	width: 100%;
-}
-.continut form{
-	background:transparent;
-	display: inline;
-	color: white;
-}
-
-/*------------------------------------Text Box--------------------------------------- */
-
-.textBoxDate{
-	display: inline;
-	position: absolute;
-	left:0;
-	top:25%;
-	width:100%;
-	text-align:center;
-	font-size: 35px;
-	color: White;
-}
-.textBoxDate .half{
-	display: inline;
-}
-input:focus {
-    outline:none !important;
-    border: 3px solid #555;
-}
-input{
-	background: transparent;
-	opacity: 0.6;
-	width: 40%;
-	color: White;
-	max-width: 500px;
-	max-height: 20%;
-	padding-top:1%;
-	padding-bottom: 1%;
-	text-align:center;
-	font-size: 20px;
-	font-variant: small-caps;
-}
-input[type=submit]{
-	max-width: 300px;
-
-}
-
-.half{
-	max-width: 200px;
-	display: inline;
-}
