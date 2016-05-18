@@ -1,0 +1,34 @@
+a{ color: #3b3a30; text-decoration: none !important; }
+
+section{
+	background-color: White;
+}
+
+header{
+	font-variant: small-caps;
+	font-size: 20px;
+	max-height: 100px;
+	text-align: center;
+	width: 100%;
+	display: inline;
+	border-bottom:1px solid #b2c2bf;
+}
+
+
+.logo{
+
+	margin-left:20%;
+	display: inline;
+	float: left;
+}
+.identitate{
+	margin-right: 20%;
+	display:  inline;
+	float: right;
+}
+
+
+.search{
+	background: transparent;
+	color: #3b3a30;
+}

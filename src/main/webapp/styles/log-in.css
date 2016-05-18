@@ -1,0 +1,96 @@
+
+/*....................................Continut..................................*/
+
+section { 
+	background-color: White;
+	text-align: center;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+input{
+	width: 426px;
+	padding: 10px;
+	color: #3b3a30;
+	border: 1px solid #b2c2bf;
+	text-align: center;
+	font-size: 15px;
+	font-variant: small-caps;
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+}
+
+input:focus {
+	outline:none !important;
+    border: 2px solid #c0ded9;
+    font-style: bolder;
+}
+
+input[type=submit]{
+	border: 0px;
+	background: none;
+	font-size: 18px;
+	font-style: 	
+}
+#facebook{
+	width: 442px;
+	color: White;
+	background-color: #3b5998;
+	font-family: Tahoma;
+	font-variant: normal;
+}
+
+
+
+
+
+
+
+
+
+/*------------------------------------vechi Text Box--------------------------------------- */
+
+
+
+
+/*
+.textBoxDate{
+	display: inline;
+	width:100%;
+	text-align:center;
+	font-size: 35px;
+}
+.textBoxDate .half{
+	display: inline;
+}
+input:focus {
+    outline:none !important;
+    border: 2px solid black;
+    color: black;
+    font-style: bolder;
+}
+
+input{
+	background: transparent;
+	width: 416px;
+	color: black;
+	max-width: 440px;
+	max-height: 20%;
+	padding-top:1%;
+	padding-bottom: 1%;
+	text-align:center;
+	font-size: 20px;
+	font-variant: small-caps;
+}
+input[type=submit]{
+	max-width: 300px;
+
+}
+
+.half{
+	max-width: 200px;
+	display: inline;
+}
+
+*/
