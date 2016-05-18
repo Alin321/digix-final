@@ -7,28 +7,56 @@ section{
 header{
 	font-variant: small-caps;
 	font-size: 20px;
-	max-height: 100px;
 	text-align: center;
-	width: 100%;
-	display: inline;
-	border-bottom:1px solid #b2c2bf;
 }
 
 
 .logo{
-
+	padding-top: 22px;
+	padding-bottom: 12px;
 	margin-left:20%;
 	display: inline;
 	float: left;
 }
+
 .identitate{
+	padding-top: 22px;
+	padding-bottom: 12px;
 	margin-right: 20%;
 	display:  inline;
 	float: right;
 }
 
-
 .search{
-	background: transparent;
+	padding-top: 22px;
+	padding-bottom: 12px;
+	
+	}
+
+input[type=text]:focus  {
+	outline:none !important;
+    border: 2px solid #c0ded9;
+    width: 400px;
+    color: #3b3a30;
+}
+
+input[type=submit]:onclick {
+	outline:none !important;
+    border: 2px solid #c0ded9;
+}
+
+input{
 	color: #3b3a30;
+	padding: 5px;
+	background: #eaece5;
+	border: 1px solid #b2c2bf;
+	text-align: center;
+	font-variant: small-caps;
+	-webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+}
+
+section{
+	text-align: center;
 }
