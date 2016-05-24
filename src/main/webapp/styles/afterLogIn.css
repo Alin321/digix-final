@@ -1,62 +1,119 @@
-a{ color: #3b3a30; text-decoration: none !important; }
+*{ margin:0; padding: 0; top 0;}
+body{ background-color: #eaece5; font-family: Georgia; width: 100%; color:#3b3a30; }
+a{ color: #3b3a30; text-decoration: none !important; }  /*link.uri*/
 
-section{
-	background-color: White;
-}
-
+/*----------------------------------------------------------------------------------------------------------- */
 header{
+	top:0;
 	font-variant: small-caps;
 	font-size: 20px;
 	text-align: center;
+	background: #eaece5;
+	position: fixed;
+	height: 100%;
+	width: 23%;
 }
+
+
+
+footer {
+	left: 25%;
+	text-align: center;
+	margin-left: 23%;
+	margin-right: 5px;
+	border-top: 1px solid #b2c2bf;
+
+	background-color: #eaece5;
+	color: #3b3a30;
+	padding: 50px;
+}
+
+section{
+	left: 23%;
+	background-color: White;
+	margin-left: 23%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	border: 1px solid #b2c2bf;
+	height:	600px;
+}
+
 
 
 .logo{
 	padding-top: 22px;
 	padding-bottom: 12px;
-	margin-left:20%;
-	display: inline;
-	float: left;
 }
 
 .identitate{
 	padding-top: 22px;
 	padding-bottom: 12px;
-	margin-right: 20%;
-	display:  inline;
-	float: right;
 }
 
 .search{
 	padding-top: 22px;
 	padding-bottom: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ................................................................................ */
+input[type=search] {
+
+
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
 	
-	}
-
-input[type=text]:focus  {
-	outline:none !important;
-    border: 2px solid #c0ded9;
-    width: 400px;
-    color: #3b3a30;
-}
-
-input[type=submit]:onclick {
-	outline:none !important;
-    border: 2px solid #c0ded9;
-}
-
-input{
-	color: #3b3a30;
-	padding: 5px;
-	background: #eaece5;
+	font-size: 80%;
+	background-color: #eaece5;
 	border: 1px solid #b2c2bf;
+	padding: 5px; 
+	width: 55px;
+
 	text-align: center;
 	font-variant: small-caps;
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 5px; 
+
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none;
 }
 
-section{
-	text-align: center;
+input[type=search]:focus{
+	width: 130px;
+	background-color: #eaece5;
+	border-color: #b2c2bf;
+	cursor: auto;
 }
