@@ -1,5 +1,7 @@
 package ro.digix.dao;
 
+import java.util.List;
+
 import ro.digix.base.AbstractDAO;
 import ro.digix.entities.User;
 
@@ -13,4 +15,5 @@ public interface UserDAO extends AbstractDAO {
 	
 	public void update(User user);
 	
+	public List<User> getAll ();
 }

@@ -1,13 +1,22 @@
 package ro.digix.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import java.util.Date;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 /**
@@ -43,14 +52,17 @@ public class User implements Serializable {
 
 	//bi-directional many-to-one association to UserFile
 	@OneToMany(mappedBy="user")
+	@JsonIgnore
 	private List<UserFile> userFiles;
 
 	//bi-directional many-to-one association to UserFriend
 	@OneToMany(mappedBy="user")
+	@JsonIgnore
 	private List<UserFriend> userFriends;
 
 	//bi-directional many-to-one association to UserLog
 	@OneToMany(mappedBy="user")
+	@JsonIgnore
 	private List<UserLog> userLogs;
 
 	public User() {

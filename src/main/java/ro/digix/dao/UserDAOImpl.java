@@ -1,5 +1,7 @@
 package ro.digix.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +48,12 @@ public class UserDAOImpl implements UserDAO {
 		getCurrentSession().saveOrUpdate(user);
 		getCurrentSession().flush();
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> getAll() {
+		return (List<User>) getCurrentSession().createCriteria(User.class).list();
 	}
 
 }
