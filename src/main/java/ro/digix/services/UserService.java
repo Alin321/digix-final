@@ -1,5 +1,7 @@
 package ro.digix.services;
 
+import java.util.List;
+
 import ro.digix.entities.User;
 
 public interface UserService {
@@ -11,4 +13,5 @@ public interface UserService {
 
 	public void update(User user);
 
+	public List<User> getAll ();
 }
