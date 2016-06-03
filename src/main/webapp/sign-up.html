@@ -5,6 +5,7 @@
 	<link href="styles/sign-up.css" rel="stylesheet" type="text/css" />
 	<link href="styles/stylesheet.css" rel="stylesheet" type="text/css" />
 	<link href="styles/log-in.css" rel="stylesheet" type="text/css" />
+	<link href="styles/footer.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -12,8 +13,8 @@
 <header>
 	<div class="nav">
 		<ul>
-			<li><a href="home-page.html">DigiX</a></li>
-			<li><a href="home-page.html#About_us">About Us</a></li>
+			<li><a href="index.html">DigiX</a></li>
+			<li><a href="index.html#About_us">About Us</a></li>
 			<li><a href="log-in.html">Log In</a></li>
 			<li><a href="#"><b>Sign Up</b></a></li>
 		</ul>
@@ -34,17 +35,15 @@
 			<input class="half" type="password" name="password" placeholder="password">
 			<input class="half" type="password" name="password" placeholder="password again"><br><br>
 			
-			<form action="afterLogIn.html" method="get">
-				<input type="submit" value="sign up">
-			</form>
+			<input type="submit" value="sign up"> <!-- De aici ma duce pe home page -->
+			
 
 			<br><br>
 
 			Or
 			<br><br>	
-			<form action="afterLogIn.html" method="get">
-    			<input id="facebook" type="submit" value="Log in with Facebook">
-			</form>
+			<input id="facebook" type="submit" value="Log in with Facebook"> <!-- De aici ma duce pe home page -->
+			
 
 
 		</form> 
@@ -54,9 +53,10 @@
 
 
 <!--........................................Footer..................................... -->
-<footer>
-	Copyright &#169; DigiX 2016. All rights reserved<br> Xo.Xo 
 
+<footer>
+	<p>&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan David <br>
+	All rights reserved<br> DigiX 2016</p>
 </footer>
 
 </body>
