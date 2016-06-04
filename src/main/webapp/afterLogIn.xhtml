@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html lang="en"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
-	<title>Home</title>
-	<link href="styles/afterLogIn.css" rel="stylesheet" type="text/css" />
-	<link href="styles/footer.css" rel="stylesheet" type="text/css" />
-	<script src="//code.jquery.com/jquery-latest.js"></script>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets">
 
-</head>   
-<body>
+	<h:head>
+		<title>Home</title>
+		<link href="styles/afterLogIn.css" rel="stylesheet" type="text/css" />
+		<link href="styles/footer.css" rel="stylesheet" type="text/css" />
+		<script src="//code.jquery.com/jquery-latest.js"></script>
+
+	</h:head>   
+<h:body>
 
 <header>
 
@@ -19,7 +20,7 @@
 
 	<div id="search"> 
 
-		<input type="search" name="search" placeholder="search on digiX">
+		<input type="search" name="search" placeholder="search on digiX"></input>
 	</div>
 
 
@@ -32,7 +33,7 @@
 		<div id="identitate"> 
 		
 			<img id="imagineAvatar" src="AICI IMAGINE AVATAR" onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';" alt=""/> 
-			<p> #{userMB.email}</p>
+			<p> Prenume Nume</p>
 		</div>
 
 		<div id="navigare">
@@ -51,20 +52,27 @@
 <div class="continut">
 
 	<div id="OnDigix">
-		Continut <br><br><br><br><br><br><br><br>
-		Abracadabra<br><br><br><br><br><br>
-		Abracadabra<br><br><br><br><br><br>
-		Abracadabra<br><br><br><br><br><br>
-		Abracadabra<br><br><br><br><br><br>
+		Continut 
+		Abracadabra
+		Abracadabra
+		Abracadabra
+		<ui:repeat var="i" varStatus="status" from="5" to="7">  
+   		value: #{i}<br/>  
+   		index: #{status.index}<br/>
+   		<img src="">  
+	</ui:repeat>
 	</div>
+
+
+	
 
 
 </div>
 
 </div>
 <footer>
-	<p>&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan David <br>
-	All rights reserved<br> DigiX 2016</p>
+	<p>&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan David <br />
+	All rights reserved<br /> DigiX 2016</p>
 </footer>
 
 
@@ -73,16 +81,16 @@
 
 
 
-<!--.................................  JAVASCRIPT........................................... 
+<!.................................  JAVASCRIPT........................................... 
 
 <script type="text/javascript">
 
 
-<!-- preluare date   
+<! preluare date   
 
 // preluam asincron imagini disponibile pe Flickr, folosind JSONP (JSON with Padding)
 // pentru detalii, a se vizita http://json-p.org/
-$.getJSON ("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", <!-- link-ul asta o sa fie inlocuit
+$.getJSON ("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", <! link-ul asta o sa fie inlocuit
   { // datele de intrare trimise serviciului Web
     tags: "iasi, romania, informatica", 
     tagmode: "all",
@@ -117,7 +125,7 @@ $.getJSON ("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=
 
 
 
-</body>
+</h:body>
 </html>
 
 
