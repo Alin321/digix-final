@@ -29,10 +29,10 @@ import ro.digix.services.UserService;
 @Service
 @Path("/register")
 public class RegisterRestService {
-
+	
 	@Autowired
 	private UserService userService;
-
+	
 	@Path("create2")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -60,7 +60,7 @@ public class RegisterRestService {
 	@Path("/create")
 	@POST
 //	@Consumes(MediaType.APPLICATION_JSON)
-	public Response  create(
+	public Response create(
 			@FormParam("lastName") String lastName,
 			@FormParam("firstName") String firstName,
 			@FormParam("email") String email,
@@ -83,13 +83,10 @@ public class RegisterRestService {
 		u.setBirthDate(date);
 		u.setId(userService.getNextId());
 		userService.create(u);
-		System.out.println(u.getId());
-		((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false)).setAttribute("ID", u.getId());
-
 		
 		java.net.URI location = null;
 		try {
-			location = new java.net.URI("../afterLogIn.html");
+			location = new java.net.URI("../log-in.html");
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
