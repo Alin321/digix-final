@@ -20,7 +20,7 @@ public interface UserDAO extends AbstractDAO {
 
 	public List<User> getAll();
 
-	public List<UserFile> getAllFiles();
+	public List<UserFile> getAllFiles(long id);
 
 	long getNextId();
 

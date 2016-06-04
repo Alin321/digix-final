@@ -58,8 +58,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserFile> getAllFiles() {
-		return userDAO.getAllFiles();
+	public List<UserFile> getAllFiles(long id) {
+		return userDAO.getAllFiles(id);
 	}
 
 	@Override

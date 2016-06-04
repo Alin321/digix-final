@@ -98,9 +98,10 @@ public class UserDAOImpl implements UserDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<UserFile> getAllFiles() {
-		String hql = "FROM UserFile uf where uf.user.id = 100";
+	public List<UserFile> getAllFiles(long id) {
+		String hql = "FROM UserFile uf where uf.user.id = :id";
 		Query query = getCurrentSession().createQuery(hql);
+		query.setParameter("id", id);
 		List<UserFile> results = (List<UserFile>) query.list();
 		
 		return results;

@@ -65,7 +65,7 @@ public class UserMB {
 	}
 	
 	public List<UserFile> getAllUserFiles(){
-		return userService.getAllFiles();
+		return userService.getAllFiles(id);
 	}
 	
 }
