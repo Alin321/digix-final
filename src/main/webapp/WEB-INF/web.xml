@@ -5,6 +5,12 @@
 
 	<display-name>DiGiX</display-name>
 
+	<welcome-file-list>
+		<welcome-file>
+			home-page.html
+		</welcome-file>
+	</welcome-file-list>
+	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:/spring-config/spring-root.xml</param-value>
