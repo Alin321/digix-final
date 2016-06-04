@@ -1,0 +1,21 @@
+
+/*------------FOOTER*/
+footer {
+	letter-spacing: 3px;
+	background-color: #eaece5;
+	clear: both;
+	text-align: center;
+	border-top: 1px solid #b2c2bf;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	width: 100%;
+	font-variant: normal;
+	font-size:11px;
+	line-height: 200%;
+	margin: 0;
+}
+
+p:first-line{
+	font-size: 15px;
+	font-variant: small-caps;
+}

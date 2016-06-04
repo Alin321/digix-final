@@ -1,0 +1,15 @@
+#yourFiles{
+	float:left;
+}
+   
+.copertaAlbum{
+	text-align: center;
+	height: 100px;
+	width:250px;
+	border: 1px solid black;
+	padding-top: 20px;
+	float:left;
+	margin-right:10px;
+	margin-bottom:10px;
+	
+}

@@ -14,8 +14,4 @@ public interface UserService {
 	public void update(User user);
 
 	public List<User> getAll ();
-	
-	public long getNextId();
-
-	public boolean authenticate(String email, String password);
 }

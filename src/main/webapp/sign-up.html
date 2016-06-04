@@ -1,99 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Join us on DigiX</title>
-<link href="styles/sign-up.css" rel="stylesheet" type="text/css" />
-<link href="styles/stylesheet.css" rel="stylesheet" type="text/css" />
-<link href="styles/log-in.css" rel="stylesheet" type="text/css" />
+	<title>Join us on DigiX</title>
+	<link href="styles/sign-up.css" rel="stylesheet" type="text/css" />
+	<link href="styles/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="styles/log-in.css" rel="stylesheet" type="text/css" />
+	<link href="styles/footer.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
-	<!--........................................Meniu..................................... -->
-	<header>
-		<div class="nav">
-			<ul>
-				<li><a href="home-page.html">DigiX</a></li>
-				<li><a href="home-page.html#About_us">About Us</a></li>
-				<li><a href="log-in.html">Log In</a></li>
-				<li><a href="#"><b>Sign Up</b></a></li>
-			</ul>
-		</div>
-	</header>
+<!--........................................Meniu..................................... -->
+<header>
+	<div class="nav">
+		<ul>
+			<li><a href="index.html">DigiX</a></li>
+			<li><a href="index.html#About_us">About Us</a></li>
+			<li><a href="log-in.html">Log In</a></li>
+			<li><a href="#"><b>Sign Up</b></a></li>
+		</ul>
+	</div>
+</header>
 
 
-	<!--............................Continut................................................ -->
-	<script>
-$("#signUp#regForm").submit(function(e){
-
-    e.preventDefault();
-
-    var data = {}
-    var Form = this;
-
-    //Gathering the Data
-    //and removing undefined keys(buttons)
-    $.each(this.elements, function(i, v){
-            var input = $(v);
-        data[input.attr("name")] = input.val();
-        delete data["undefined"];
-    });
-
-    //Form Validation goes here....
-
-    //Save Form Data........
-    $.ajax({
-        cache: false,
-        url : "/digix-final/rest/register/create2",
-        type: "POST",
-        dataType : "json",
-        data : JSON.stringify(data),
-        context : Form,
-        success : function(callback){
-            //Where $(this) => context == FORM
-            console.log(JSON.parse(callback));
-            $(this).html("Success!");
-        },
-        error : function(){
-            $(this).html("Error!");
-        }
-    });
-</script>
+<!--............................Continut................................................ -->
 
 
-	<section id="signUp">
-		<form method="post" name="regForm" id="regForm"
-			action="/digix-final/rest/register/create">
-			<input class="half" type="text" name="lastName"
-				placeholder="last name" /> 
-			<input class="half" type="text"
-				name="firstName" placeholder="firstName"/>
-			<br> <br>
-			<input type="date" name="birthday" placeholder="birthday">
-			<br> <br> 
-			<input type="text" name="email" placeholder="e-mail">
-			<br> <br> 
-			<input class="half" type="password" name="password"
-				placeholder="password" /> 
-			<input class="half" type="password"
-				name="password" placeholder="password again" />
-			<br> <br>
-			<input type="submit" value="sign up" /> 
-			<br> <br> Or
-			<br> <br>
-		</form>
-		<form id="facebookLogin">
-			<input id="facebook" type="submit" value="Log in with Facebook">
-		</form>
-	</section>
+
+<section id="signUp">
+		<form method="post" action = "/digix-final/rest/register/create" name="regForm" id="regForm">
+			<input class="half" type="text" name="last name" placeholder="last name">
+			<input class="half" type="text" name="first name" placeholder="first name"><br><br>
+			<input type="date" name="birthdaydate" placeholder="birthday"><br><br>
+			<input type="text" name="e-mail" placeholder="e-mail"><br><br>
+			<input class="half" type="password" name="password" placeholder="password">
+			<input class="half" type="password" name="password" placeholder="password again"><br><br>
+			
+			<input type="submit" value="sign up"> <!-- De aici ma duce pe home page -->
+			
+
+			<br><br>
+
+			Or
+			<br><br>	
+			<input id="facebook" type="submit" value="Log in with Facebook"> <!-- De aici ma duce pe home page -->
+			
+
+
+		</form> 
+</section>
 
 
 
 
-	<!--........................................Footer..................................... -->
-	<footer>
-		Copyright &#169; DigiX 2016. All rights reserved<br> Xo.Xo
+<!--........................................Footer..................................... -->
 
-	</footer>
+<footer>
+	<p>&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan David <br>
+	All rights reserved<br> DigiX 2016</p>
+</footer>
 
 </body>
-</html>
+</html> 

@@ -36,15 +36,3 @@ header{
 	font-style: normal;
 }
 
-
-/*------------------------------------FOOTER--------------------------------------- */
-
-
-footer{
-	border-top:1px solid #b2c2bf;
-	background-color: #eaece5;
-	color: #3b3a30;
-    text-align:center;
-    padding: 50px;
-}
-
