@@ -161,12 +161,17 @@ insert into user_friends values(13,105,102);
 insert into user_friends values(14,106,102);
 
 
-insert into file_tags values(1,1,'#tag#copou#pizza');
-insert into file_tags values(2,2,'#tag#copou#pizza#smiley');
-insert into file_tags values(3,3,'#tag#copou#retele');
-insert into file_tags values(4,4,'#tag#copou#retele#hard');
-insert into file_tags values(5,5,'#trist#gras');
-insert into file_tags values(6,6,'#campion');
+/*insert into file_tags values(1,1,'copou');
+insert into file_tags values(2,1,'pizza');
+insert into file_tags values(3,1,'retele');
+insert into file_tags values(4,2,'gras');
+insert into file_tags values(5,2,'iasi');
+insert into file_tags values(6,2,'stadion');
+insert into file_tags values(7,3,'copou');
+insert into file_tags values(8,4,'bucuresti');
+insert into file_tags values(9,4,'romania');
+insert into file_tags values(8,4,'bunica');
+insert into file_tags values(9,4,'relax');*/
 
 
 insert into familie values(1,104,100);
@@ -176,6 +181,54 @@ insert into familie values(4,105,106);
 insert into familie values(5,107,105);
 insert into familie values(6,109,105);
 insert into familie values(7,108,104);
+/
+drop table numeTaguri;
+/
+create table numeTaguri ( nume varchar2(100)
+);
+/
+insert into numeTaguri values('piata');
+insert into numeTaguri values('iasi');
+insert into numeTaguri values('stadion');
+insert into numeTaguri values('copou');
+insert into numeTaguri values('mama');
+insert into numeTaguri values('tata');
+insert into numeTaguri values('caine');
+insert into numeTaguri values('trist');
+insert into numeTaguri values('romania');
+insert into numeTaguri values('europa');
+insert into numeTaguri values('pizza');
+insert into numeTaguri values('bucuresti');
+insert into numeTaguri values('bere');
+insert into numeTaguri values('mici');
+insert into numeTaguri values('terasa');
+insert into numeTaguri values('meci');
+insert into numeTaguri values('biblioteca');
+insert into numeTaguri values('bunicu');
+insert into numeTaguri values('sora');
+insert into numeTaguri values('frate');
+insert into numeTaguri values('facultate');
+insert into numeTaguri values('cafea');
+/
+set serveroutput on;
+declare
+ v_i number:=0;
+ nr_files number:=0;
+ nr_taguri number:=0;
+ v_nume varchar2(100):=' ';
+ v_id number:=0;
+begin
+  select count(*) into nr_files from user_files;
+  for v_i in 1..nr_files loop
+    nr_taguri:=TRUNC(DBMS_RANDOM.VALUE(1,6));
+    while(nr_taguri > 0) loop
+      v_id:=v_id+1;
+      SELECT nume into v_nume FROM ( SELECT * FROM numeTaguri ORDER BY DBMS_RANDOM.RANDOM) WHERE  rownum < 2;
+      insert into file_tags(id,file_id,tag) values(v_id,v_i,v_nume);
+      nr_taguri:=nr_taguri-1;
+    end loop;
+  end loop;
+end;
 /
 --select * from users;
 --select * from user_logs;
