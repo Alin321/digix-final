@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Log in</title>
-	<link href="styles/stylesheet.css" rel="stylesheet" type="text/css" />
-	<link href="styles/log-in.css" rel="stylesheet" type="text/css" />
+<title>Log in</title>
+<link href="styles/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="styles/log-in.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
-<!--........................................Meniu..................................... -->
-<header>
-	<div class="nav">
-		<ul>
-			<li><a href="home-page.html">DigiX</a></li>
-			<li><a href="home-page.html#About_us">About Us</a></li>
-			<li><a href="#"><b>Log In</b></a></li>
-			<li><a href="sign-up.html">Sign Up</a></li>
-		</ul>
-	</div>
-</header>
+	<!--........................................Meniu..................................... -->
+	<header>
+		<div class="nav">
+			<ul>
+				<li><a href="home-page.html">DigiX</a></li>
+				<li><a href="home-page.html#About_us">About Us</a></li>
+				<li><a href="#"><b>Log In</b></a></li>
+				<li><a href="sign-up.html">Sign Up</a></li>
+			</ul>
+		</div>
+	</header>
 
 
-<!--.................................Continut ......................................... -->
+	<!--.................................Continut ......................................... -->
 
 
-<section>
-	<form method="post" action = "/digix-final/rest/register/create" name="regForm" id="regForm">
-		<input type="text" name="e-mail" placeholder="e-mail"><br><br>
-		<input type="password" name="password" placeholder="password"><br><br>
-		
-		<form action="afterLogIn.html" method="get">
-		<input type="submit" value="log in">
+	<section>
+		<form method="post" action="LoginServlet"
+			name="regForm" id="regForm">
+			<input type="text" name="email" placeholder="email"><br>
+			<br> <input type="password" name="password"
+				placeholder="password"><br>
+			<br>
+
+			<input type="submit" value="log in">
+
+			<br>
+			<br>
+
+		</form>
+		<form action="#" method="get">
+			<input id="facebook" type="submit" value="Log in with Facebook">
 		</form>
 
-		<br><br>
 
-		<form action="afterLogIn.html" method="get">
-    		<input id="facebook" type="submit" value="Log in with Facebook">
-		</form>
-
-	</form> 	
-</section>
+	</section>
 
 
 
 
 
 
-<!--........................................Footer..................................... -->
-<footer>
-	Copyright &#169; DigiX 2016. All rights reserved
-</footer>
+	<!--........................................Footer..................................... -->
+	<footer> Copyright &#169; DigiX 2016. All rights reserved </footer>
 
 </body>
-</html> 
+</html>
