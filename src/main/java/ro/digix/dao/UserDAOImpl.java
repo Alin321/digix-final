@@ -74,9 +74,7 @@ public class UserDAOImpl implements UserDAO {
 		query.setParameter("email", email);
 		query.setParameter("password", password);
 		List<User> results = (List<User>) query.list();
-		System.out.println("Before if");
 		if (results.size() == 0) {
-			System.out.println("Inside if");
 			return false;
 		}
 		return true;
