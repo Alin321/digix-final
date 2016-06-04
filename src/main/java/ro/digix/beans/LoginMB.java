@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import ro.digix.entities.User;
 import ro.digix.services.UserService;
 
 @Component("loginMB")
@@ -32,7 +33,12 @@ public class LoginMB extends BaseMB {
 		}
 
 		if (userService.authenticate(email, password)) {
-			userMB.setEmail(email);
+			User u = userService.getUserByEmail(email);
+			userMB.setEmail(u.getEmail());
+			userMB.setBirthDate(u.getBirthDate());
+			userMB.setFirstName(u.getFirstName());
+			userMB.setLastName(u.getLastName());
+			userMB.setId(u.getId());
 			return getRedirectedURL("afterLogIn.xhtml");
 
 		} else {

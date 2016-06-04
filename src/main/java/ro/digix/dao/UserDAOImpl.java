@@ -105,4 +105,20 @@ public class UserDAOImpl implements UserDAO {
 		
 		return results;
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public User getUserByEmail(String email) {
+		String hql = "FROM User U WHERE U.email = :email";
+		Query query = getCurrentSession().createQuery(hql);
+		query.setParameter("email", email);
+		List<User> results = (List<User>) query.list();
+		
+		User u = null;
+		if(results.size() > 0) {
+			u = results.get(0);
+		}
+		
+		return u;
+	}
 }

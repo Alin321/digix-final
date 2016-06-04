@@ -9,6 +9,8 @@ public interface UserService {
 	public User create(User user);
 
 	public User getUserById(long id);
+	
+	public User getUserByEmail(String email);
 
 	public void delete(User user);
 

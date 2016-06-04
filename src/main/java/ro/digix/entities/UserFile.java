@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -48,7 +49,7 @@ public class UserFile implements Serializable {
 	private String type;
 
 	//bi-directional many-to-one association to FileTag
-	@OneToMany(mappedBy="userFile")
+	@OneToMany(mappedBy="userFile", fetch = FetchType.EAGER)
 	private List<FileTag> fileTags;
 
 	//bi-directional many-to-one association to User

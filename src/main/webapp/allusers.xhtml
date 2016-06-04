@@ -11,6 +11,11 @@
 <body>
 	<ui:repeat value="#{userMB.allUserFiles}" var="item2">
 		<h:graphicImage value="#{item2.location}" width="200" height="171" rendered = "#{item2.type == 'poza'}"/>
+		<br />
+		<ui:repeat value="#{item2.fileTags}" var = "item" rendered = "#{item2.type == 'poza'}">
+		#{item.tag}
+		</ui:repeat>
+		<br /> <br />
 	</ui:repeat>
 
 	<ui:repeat var="i" varStatus="status" from="5" to="7">  
