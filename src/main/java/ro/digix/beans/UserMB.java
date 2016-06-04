@@ -8,11 +8,12 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import ro.digix.entities.User;
+import ro.digix.entities.UserFile;
 import ro.digix.services.UserService;
 
 
 @Component("userMB") 
-@Scope("request")
+@Scope("session")
 public class UserMB {
 	
 	@Autowired
@@ -23,7 +24,6 @@ public class UserMB {
 	private String email;
 	private String firstName;
 	private String lastName;
-	private String password;
 	
 	public long getId() {
 		return id;
@@ -55,18 +55,17 @@ public class UserMB {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}	
 	
 	public List<User> getAllUsers() {
 		return userService.getAll();
+	}
+	
+	public List<UserFile> getAllUserFiles(){
+		return userService.getAllFiles();
 	}
 	
 }

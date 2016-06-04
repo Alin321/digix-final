@@ -81,6 +81,7 @@ public class Upload extends HttpServlet {
             	String pattern = Pattern.quote(System.getProperty("file.separator"));
                 String [] aux = content.split(pattern);
                 String fileName = aux[aux.length-1];
+                fileName = fileName.split("=")[1].substring(1);
                 return fileName.substring(0,fileName.length()-1);
             }
         }

@@ -44,9 +44,6 @@ public class UserFile implements Serializable {
 	@Column(name="location")
 	private String location;
 
-	@Column(name="LOG_ENTRY")
-	private long logEntry;
-
 	@Column(name="type")
 	private String type;
 
@@ -92,14 +89,6 @@ public class UserFile implements Serializable {
 
 	public void setLocation(String location) {
 		this.location = location;
-	}
-
-	public long getLogEntry() {
-		return this.logEntry;
-	}
-
-	public void setLogEntry(long logEntry) {
-		this.logEntry = logEntry;
 	}
 
 	public String getType() {

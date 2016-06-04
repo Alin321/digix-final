@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ro.digix.dao.UserDAO;
 import ro.digix.entities.User;
+import ro.digix.entities.UserFile;
 
 @Service("userService")
 @Transactional(readOnly = true, rollbackFor = Exception.class)
@@ -49,6 +50,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public long getNextId() {
 		return userDAO.getNextId();
+	}
+
+	@Override
+	public boolean checkIfEmailExists(String email) {
+		return userDAO.checkIfEmailExists(email);
+	}
+
+	@Override
+	public List<UserFile> getAllFiles() {
+		return userDAO.getAllFiles();
 	}
 
 

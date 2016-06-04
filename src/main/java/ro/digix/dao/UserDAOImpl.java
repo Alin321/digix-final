@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import ro.digix.entities.User;
+import ro.digix.entities.UserFile;
 
 @Repository
 @Transactional
@@ -78,5 +79,30 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 		}
 		return true;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean checkIfEmailExists(String email) {
+		String hql = "FROM User U WHERE U.email = :email";
+		Query query = getCurrentSession().createQuery(hql);
+		query.setParameter("email", email);
+		List<User> results = (List<User>) query.list();
+		
+		if(results.size() > 0) {
+			return true;
+		}
+		
+		return false;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserFile> getAllFiles() {
+		String hql = "FROM UserFile uf where uf.user.id = 100";
+		Query query = getCurrentSession().createQuery(hql);
+		List<UserFile> results = (List<UserFile>) query.list();
+		
+		return results;
 	}
 }
