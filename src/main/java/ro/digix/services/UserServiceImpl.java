@@ -41,5 +41,15 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getAll();
 	}
 
+	@Override
+	public boolean authenticate(String email, String password) {
+		return userDAO.authenticate(email, password);
+	}
+
+	@Override
+	public long getNextId() {
+		return userDAO.getNextId();
+	}
+
 
 }

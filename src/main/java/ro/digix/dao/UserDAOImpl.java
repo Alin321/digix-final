@@ -2,8 +2,11 @@ package ro.digix.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -56,7 +59,6 @@ public class UserDAOImpl implements UserDAO {
 		return (List<User>) getCurrentSession().createCriteria(User.class).list();
 	}
 
-<<<<<<< HEAD
 	@Override
 	public long getNextId() {
 		Criteria criteria = getCurrentSession().createCriteria(User.class).setProjection(Projections.max("id"));
@@ -77,7 +79,4 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return true;
 	}
-
-=======
->>>>>>> ba9d7c03d70d9c3ed654bd98c8cb478a56077f54
 }

@@ -71,20 +71,18 @@ public class RegisterRestService {
 		cal.set(Calendar.DAY_OF_MONTH,Integer.parseInt(data[2]));
 		
 		Date date = cal.getTime();
-		long range = 500L;
-		Random r = new Random();
-		long number = (long)(r.nextDouble()*range);
+		
 		User u = new User();
 		u.setLastName(lastName);
 		u.setFirstName(firstName);
 		u.setEmail(email);
 		u.setPassword(password);
-		u.setId(number);
+		u.setId(userService.getNextId());
 		u.setBirthDate(date);
 		userService.create(u);
 		java.net.URI location = null;
 		try {
-			location = new java.net.URI("../home-page.html?msg="+u.getFirstName()+"-Added");
+			location = new java.net.URI("../log-in.html");
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -16,4 +16,8 @@ public interface UserDAO extends AbstractDAO {
 	public void update(User user);
 	
 	public List<User> getAll ();
+
+	long getNextId();
+
+	boolean authenticate(String email, String password);
 }

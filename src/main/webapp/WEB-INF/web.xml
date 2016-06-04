@@ -3,11 +3,9 @@
 	version="3.0">
 
 	<display-name>DiGiX</display-name>
-
-<<<<<<< HEAD
 	<welcome-file-list>
 		<welcome-file>
-			home-page.html
+			index.html
 		</welcome-file>
 	</welcome-file-list>
 	<servlet>
@@ -25,8 +23,6 @@
 		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
 		<param-value>.xhtml</param-value>
 	</context-param>
-=======
->>>>>>> ba9d7c03d70d9c3ed654bd98c8cb478a56077f54
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:/spring-config/spring-root.xml</param-value>
