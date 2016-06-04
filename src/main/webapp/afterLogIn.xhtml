@@ -39,9 +39,9 @@
 				<img id="imagineAvatar" src="AICI IMAGINE AVATAR"
 					onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
 					alt=""></img>
-				<p>Email: #{userMB.email} 
-				FirstName : #{userMB.firstName} 
-				LastName : #{userMB.lastName}
+				<p>
+				
+				#{userMB.firstName} #{userMB.lastName}
 				</p>
 			</div>
 
@@ -63,20 +63,25 @@
 				<p>Continut</p>
 			</div>
 			<div id="OnDigix">
-				<img src="toate-imaginile/product_image_not_available.gif"
-					onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
-					alt=""></img> <img
-					src="toate-imaginile/product_image_not_available.gif"
-					onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
-					alt=""></img> <img
-					src="toate-imaginile/product_image_not_available.gif"
-					onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
-					alt=""></img> <img
-					src="toate-imaginile/product_image_not_available.gif"
-					onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
-					alt=""></img>
+					<ui:repeat value="#{userMB.allUserFiles}" var="file">
+						<h:graphicImage value="#{file.location}" width="200" height="171" rendered = "#{file.type == 'poza'}"/>
+						<video id="myVideo" width="100%" controls="controls" rendered = "#{file.type == 'video'}">
+							<source src="#{file.location}" type="video/mp4" />
+						</video>
+						<br />
+						<ui:repeat value="#{file.fileTags}" var = "tag" rendered = "#{file.type == 'poza'}">
+							#{tag.tag}
+						</ui:repeat>
+						<ui:repeat value="#{item2.fileTags}" var = "item" rendered = "#{file.type == 'video'}">
+							#{tag.tag}
+						</ui:repeat>
+						<br /> <br />
+					</ui:repeat>
 
-
+					<ui:repeat var="i" varStatus="status" from="5" to="7">  
+   						value: #{i} <br />  
+   						index: #{status.index} <br />
+					</ui:repeat>
 			</div>
 
 		</div>
