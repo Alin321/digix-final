@@ -4,8 +4,10 @@ import java.net.URISyntaxException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
+import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -14,11 +16,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ro.digix.beans.UserMB;
 import ro.digix.entities.User;
 import ro.digix.services.UserService;
 
@@ -28,8 +32,7 @@ public class RegisterRestService {
 
 	@Autowired
 	private UserService userService;
-	
-	
+
 	@Path("create2")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -71,24 +74,27 @@ public class RegisterRestService {
 		cal.set(Calendar.DAY_OF_MONTH,Integer.parseInt(data[2]));
 		
 		Date date = cal.getTime();
-		long range = 500L;
-		Random r = new Random();
-		long number = (long)(r.nextDouble()*range);
+		
 		User u = new User();
 		u.setLastName(lastName);
 		u.setFirstName(firstName);
 		u.setEmail(email);
 		u.setPassword(password);
-		u.setId(number);
 		u.setBirthDate(date);
+		u.setId(userService.getNextId());
 		userService.create(u);
+		System.out.println(u.getId());
+		((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false)).setAttribute("ID", u.getId());
+
+		
 		java.net.URI location = null;
 		try {
-			location = new java.net.URI("../home-page.html?msg="+u.getFirstName()+"-Added");
+			location = new java.net.URI("../afterLogIn.html");
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	    return Response.temporaryRedirect(location).build();
 	}
 	
