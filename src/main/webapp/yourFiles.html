@@ -4,7 +4,8 @@
 	<title>Home</title>
 	<link href="styles/afterLogIn.css" rel="stylesheet" type="text/css" />
 	<link href="styles/footer.css" rel="stylesheet" type="text/css" />
-	<script src="//code.jquery.com/jquery-latest.js"></script>
+	<link href="styles/yourFiles.css" rel="stylesheet" type="text/css" />
+<!--	<script src="//code.jquery.com/jquery-latest.js"></script> -->
 
 </head>
 <body>
@@ -33,48 +34,51 @@
 
 		<div id="navigare">
 		<ul>
-			<li><a href="yourFiles.html">your files</a></li>
+			<li><a href="#">your files</a></li>
 			<li><a href="yourFriendsFiles.html">your friends files</a></li>
 			<li><a href="yourListOfFriends.html">your list of friends</a></li>
 			<li><a href="settings.html"> settings</a></li>
 			<li><a href="index.html">log out</a></li>
 		</ul>
 		</div>
-	
-	</div>
-	
-
-<div class="continut">
-
-	<div id="OnDigix">
-		Continut <br><br><br><br><br><br><br><br>
-		Abracadabra<br><br><br><br><br><br>
-		Abracadabra<br><br><br><br><br><br>
-		Abracadabra<br><br><br><br><br><br>
-		Abracadabra<br><br><br><br><br><br>
 	</div>
 
+	<div class="continut">
+
+		<div class="titluFisiere"> <p>Your files</p></div>
+
+	
+		<div id="YourFiles">
+			<div class="copertaAlbum"><a href="#">Fotografii </a></div>
+			<div class="copertaAlbum">	Videoclipuri</div>
+			<div class="copertaAlbum">	Acte</div>
+			<div class="copertaAlbum">  Update</div> 
+			<div id="imaginiInYourFiles"> </div>
+		</div>
+
+	</div>
 
 </div>
 
-</div>
+
 <footer>
 	<p>&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan David <br>
 	All rights reserved<br> DigiX 2016</p>
 </footer>
 
 
+
+
+
 <!--
 
-
-
-
 <!--.................................  JAVASCRIPT........................................... 
-
 <script type="text/javascript">
 
 
-<!-- preluare date   
+
+
+<!-- preluare date   --
 
 // preluam asincron imagini disponibile pe Flickr, folosind JSONP (JSON with Padding)
 // pentru detalii, a se vizita http://json-p.org/
@@ -104,16 +108,12 @@ $.getJSON ("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=
     
 
 
-
-
-
 </script>
+
+
 
 -->
 
 
-
 </body>
 </html>
-
-
