@@ -209,6 +209,27 @@ insert into numeTaguri values('sora');
 insert into numeTaguri values('frate');
 insert into numeTaguri values('facultate');
 insert into numeTaguri values('cafea');
+insert into numeTaguri values('tw');
+insert into numeTaguri values('proiect');
+insert into numeTaguri values('iarba');
+insert into numeTaguri values('gratar');
+insert into numeTaguri values('bucium');
+insert into numeTaguri values('euro2016');
+insert into numeTaguri values('food');
+insert into numeTaguri values('dulciuri');
+insert into numeTaguri values('plimbare');
+insert into numeTaguri values('iubita');
+insert into numeTaguri values('iubitu');
+insert into numeTaguri values('bomboane');
+insert into numeTaguri values('innourat');
+insert into numeTaguri values('senin');
+insert into numeTaguri values('vant');
+insert into numeTaguri values('masina');
+insert into numeTaguri values('home');
+insert into numeTaguri values('carti');
+insert into numeTaguri values('poker');
+insert into numeTaguri values('remi');
+insert into numeTaguri values('cascada');
 /
 set serveroutput on;
 declare
