@@ -43,7 +43,6 @@ public class LoginServlet extends HttpServlet {
 		String password = req.getParameter("password");
 		PrintWriter out = resp.getWriter();
 		HttpSession session = req.getSession();
-		System.out.println("email" + email + password);
 		if (userService.authenticate(email, password)) {
 			session.setAttribute("EMAIL", email);
 			resp.sendRedirect("afterLogIn.html");
