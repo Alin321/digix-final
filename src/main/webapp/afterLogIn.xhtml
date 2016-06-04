@@ -61,26 +61,29 @@
 			</div>
 			<div id="OnDigix">
 				<ui:repeat value="#{userMB.allUserFiles}" var="file">
-					<embed src="#{file.location}" width="325"
-						height="230" allowfullscreen="true" autostart="false"/>
-					<!-- 
-					<video id="myVideo" width="100%" controls="controls"
-						rendered="#{file.type == 'video'}"> <h:outputText
-						value="&lt;source src=&quot;#{file.location}&quot; type=&quot;video/mp4&quot; /&qt;"
-						escape="false" rendered="#{file.type == 'video'}" /> </video>
-						
-					 -->
-					<br />
-					<ui:repeat value="#{file.fileTags}" var="tag">
-							#{tag.tag}
-					</ui:repeat>
-					<br />
-					<br />
-				</ui:repeat>
-
-				<ui:repeat var="i" varStatus="status" from="5" to="7">  
-   						value: #{i} <br />  
-   						index: #{status.index} <br />
+					
+					<div class="fisiereAfisate">
+						<embed src="#{file.location}" width="425"
+							height="330" allowfullscreen="true" autoplay="0" autostart="false"/>
+						<!-- 
+						<video id="myVideo" width="100%" controls="controls"
+							rendered="#{file.type == 'video'}"> <h:outputText
+							value="&lt;source src=&quot;#{file.location}&quot; type=&quot;video/mp4&quot; /&qt;"
+							escape="false" rendered="#{file.type == 'video'}" /> </video>
+							
+						 -->
+							 
+						<br />
+					
+						<ui:repeat  value="#{file.fileTags}" var="tag">
+								#{tag.tag}
+						</ui:repeat>
+							<br />
+						<h:selectBooleanCheckbox /> Share this file with your friends.
+						<br />
+						<br />
+					</div>	
+					
 				</ui:repeat>
 			</div>
 

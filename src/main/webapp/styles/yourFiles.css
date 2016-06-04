@@ -1,15 +1,23 @@
 #yourFiles{
-	float:left;
+	text-align: center;
 }
    
-.copertaAlbum{
+.copertaAlbum {
 	text-align: center;
-	height: 100px;
-	width:250px;
-	border: 1px solid black;
-	padding-top: 20px;
+	height: 70px;
+	width:150px;
+	border: 1px solid #b2c2bf;
 	float:left;
-	margin-right:10px;
-	margin-bottom:10px;
+	margin-right:20px;
+	margin-bottom:20px;
+	padding-top: 40px;
 	
 }
+
+.album :hover {
+	color:#3b3a30;
+	background-color: #eaece5;
+
+}
+
+

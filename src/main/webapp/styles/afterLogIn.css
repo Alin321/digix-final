@@ -42,7 +42,7 @@ header {
 /*--------------------------------------------------------------HEADER--------------------------------------------------------------SEARCH*/
 #search {
 	display:inline;
-	max-width: 50%
+	max-width: 50%;
 	font-style: normal;
 	font-size: 20px;
 
@@ -100,11 +100,11 @@ input[type=search]:focus{
 
 #corp{
 	margin-top: 30px;
-	margin-bottom: 10px;
+	margin-bottom: 100px;
 	clear: both;
 	display: inline-block;
 	width: 1155px;
-	min-height: 700px;
+	height: 700px;
 }
 
 
@@ -134,7 +134,6 @@ input[type=search]:focus{
 }
 
 #imagineAvatar{
-	padding-bottom: 10px;
 	border-radius: 100px;
 	height: 120px;
 	width: 120px;
@@ -148,20 +147,19 @@ input[type=search]:focus{
 
 
 .continut{
-
+	overflow: scroll;
 	margin-left: -330px;
 	padding: 27px;
 	display: inline-block;
 	position: absolute;
-	float: left;
 	width: 840px;
 	background-color: white;
-	min-height: 400px;
+	max-height: 700px;
 	border: 1px solid #b2c2bf;
-	text-align: left;
+	text-align: center;
 	font-variant: normal;
 	font-size: 13px;
-	display: inline;
+	min-height: 600px;
 }
 
 /*
@@ -177,13 +175,11 @@ input[type=search]:focus{
     -moz-border-radius: 5px; 
     border-radius: 5px; 
 }
-
 input:focus {
 	outline:none !important;
     border: 2px solid #c0ded9;
     font-style: bolder;
 }
-
 input[type=submit]{
 	border: 0px;
 	background: none;
@@ -194,9 +190,32 @@ p{
 	text-align: center;
 	padding-bottom: 27px;
 }
-
-
 */
 
-/*--------------------------------------------------BASIC----*/
+/*--------------------------------------------------FISIERE----*/
 
+img{
+	border: 1px solid black;
+}
+
+.titluFisiere{
+	padding-top: 7px;
+	text-align: center;
+	width: 100%;
+	padding-bottom:27px;
+	margin-bottom: 20px;
+}
+
+.OnDigix{
+
+	text-align: center;
+	width:50%;
+
+}
+.fisiereAfisate{
+	line-height: 200%;
+	padding-top:20px;
+	padding-bottom:20px;
+	border:1px solid black;
+	margin-bottom:20px;
+}

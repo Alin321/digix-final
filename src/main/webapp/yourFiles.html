@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
 	<title>Home</title>
 	<link href="styles/afterLogIn.css" rel="stylesheet" type="text/css" />
 	<link href="styles/footer.css" rel="stylesheet" type="text/css" />
 	<link href="styles/yourFiles.css" rel="stylesheet" type="text/css" />
 <!--	<script src="//code.jquery.com/jquery-latest.js"></script> -->
 
-</head>
-<body>
+</h:head>
+<h:body>
 
 <header>
 
@@ -49,10 +54,10 @@
 
 	
 		<div id="YourFiles">
-			<div class="copertaAlbum"><a href="#">Fotografii </a></div>
-			<div class="copertaAlbum">	Videoclipuri</div>
-			<div class="copertaAlbum">	Acte</div>
-			<div class="copertaAlbum">  Update</div> 
+			<a class="album" href="#"><div class="copertaAlbum">Fotografii </div></a>
+			<a class="album" href="YourFiles_Videoclipuri"><div class="copertaAlbum" >Videoclipuri</div></a>
+			<a class="album" href="YourFiles_Acte"><div class="copertaAlbum">	Acte</div></a>
+			<a class="album" href="upload.html"><div class="copertaAlbum"> + Update</div></a>
 			<div id="imaginiInYourFiles"> </div>
 		</div>
 
@@ -70,50 +75,5 @@
 
 
 
-<!--
-
-<!--.................................  JAVASCRIPT........................................... 
-<script type="text/javascript">
-
-
-
-
-<!-- preluare date   --
-
-// preluam asincron imagini disponibile pe Flickr, folosind JSONP (JSON with Padding)
-// pentru detalii, a se vizita http://json-p.org/
-$.getJSON ("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", <!-- link-ul asta o sa fie inlocuit
-  { // datele de intrare trimise serviciului Web
-    tags: "iasi, romania, informatica", 
-    tagmode: "all",
-    format: "json"  // dorim JSON (formatul implicit este Atom)
-  },
-  // functia anonima care va procesa datele JSON 
-  // transmise asincron de catre Flickr
-  function (data) {
-  	// iteram fiecare informatie obtinuta de la serviciul Web
-    $.each (data.items, function (numar, foto) {
-      // mai mult de 5 imagini? 'iesim' din iterator
-      if (numar >= 5) 
-         return false;
-      // cream un element <img> avand ca valoare a atributului "src"
-      // adresa Web inclusa in datele JSON obtinute;
-      // acest <img> va fi adaugat la elementul cu id="imagini"
-      $ ("<img/>")
-        .attr ("src", foto.media.m)
-        .attr ("title", foto.title)
-        .appendTo ("#imaginiInYourFiles");
-    });
-  });
-    
-
-
-</script>
-
-
-
--->
-
-
-</body>
+</h:body>
 </html>
