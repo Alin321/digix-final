@@ -86,19 +86,19 @@ insert into user_logs values(12,108,'add_file',sysdate);
 insert into user_logs values(13,109,'add_file',sysdate);
 
 
-insert into user_files values(1,100,'poza','C:\\upload\sturza.razvan@yahoo.com\poza1.jpg',sysdate,'P');
-insert into user_files values(2,100,'poza','C:\\upload\sturza.razvan@yahoo.com\poza2.jpg',sysdate,'P');
-insert into user_files values(3,100,'act','C:\\upload\sturza.razvan@yahoo.com\act1.pdf',sysdate,'P');
-insert into user_files values(4,100,'act','C:\\upload\sturza.razvan@yahoo.com\act2.pdf',sysdate,'P');
-insert into user_files values(5,101,'poza','C:\\upload\stefan.david@yahoo.com\poza.jpg',sysdate,'P');
-insert into user_files values(6,102,'poza','C:\\upload\alin.cuzuc@yahoo.com\poza.jpg',sysdate,'P');
-insert into user_files values(7,103,'poza','C:\\upload\andreea.sacara@yahoo.com\poza.jpg',sysdate,'P');
-insert into user_files values(8,104,'poza','C:\\upload\sturza.nuta@yahoo.com\poza.jpg',sysdate,'P');
-insert into user_files values(9,105,'poza','C:\\upload\sturza.gelu@yahoo.com\poza.jpg',sysdate,'P');
-insert into user_files values(10,106,'poza','C:\\upload\sturza.gabi@yahoo.com\poza.jpg',sysdate,'P');
-insert into user_files values(11,107,'poza','C:\\upload\sturza.toader@yahoo.com\poza.jpg',sysdate,'P');
-insert into user_files values(12,108,'poza','C:\\upload\barba.ghita@yahoo.com\poza.jpg',sysdate,'P');
-insert into user_files values(13,109,'poza','C:\\upload\sturza.maria@yahoo.com\poza.jpg',sysdate,'P');
+insert into user_files values(1,100,'poza','upload/sturza.razvan@yahoo.com/poza1.JPG',sysdate,'P');
+insert into user_files values(2,100,'poza','upload/sturza.razvan@yahoo.com/poza2.JPG',sysdate,'P');
+insert into user_files values(3,100,'act','upload/sturza.razvan@yahoo.com/act1.pdf',sysdate,'P');
+insert into user_files values(4,100,'act','upload/sturza.razvan@yahoo.com/act2.pdf',sysdate,'P');
+insert into user_files values(5,101,'poza','upload/stefan.david@yahoo.com/poza.jpg',sysdate,'P');
+insert into user_files values(6,102,'poza','upload/alin.cuzuc@yahoo.com/poza.jpg',sysdate,'P');
+insert into user_files values(7,103,'poza','upload/andreea.sacara@yahoo.com/poza.jpg',sysdate,'P');
+insert into user_files values(8,104,'poza','upload/sturza.nuta@yahoo.com/poza.jpg',sysdate,'P');
+insert into user_files values(9,105,'poza','upload/sturza.gelu@yahoo.com/poza.jpg',sysdate,'P');
+insert into user_files values(10,106,'poza','upload/sturza.gabi@yahoo.com/poza.jpg',sysdate,'P');
+insert into user_files values(11,107,'poza','upload/sturza.toader@yahoo.com/poza.jpg',sysdate,'P');
+insert into user_files values(12,108,'poza','upload/barba.ghita@yahoo.com/poza.jpg',sysdate,'P');
+insert into user_files values(13,109,'poza','upload/sturza.maria@yahoo.com/poza.jpg',sysdate,'P');
 
 
 insert into user_friends values(1,100,101);
