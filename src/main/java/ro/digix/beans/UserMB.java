@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import ro.digix.entities.User;
 import ro.digix.entities.UserFile;
+import ro.digix.services.UserFileService;
 import ro.digix.services.UserService;
 
 @Component("userMB")
@@ -18,6 +19,9 @@ public class UserMB {
 	@Autowired
 	UserService userService;
 
+	@Autowired
+	UserFileService userFileService;
+	
 	private long id;
 	private Date birthDate;
 	private String email;
@@ -91,5 +95,13 @@ public class UserMB {
 	
 	public User getUserById(long id) {
 		return userService.getUserById(id);
+	}
+	
+	public List<String> getAllCategories() {
+		return userFileService.getAllCategories();
+	}
+	
+	public String goToCategory(String s) {
+		return null;
 	}
 }

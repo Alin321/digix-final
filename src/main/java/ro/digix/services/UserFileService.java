@@ -1,5 +1,7 @@
 package ro.digix.services;
 
+import java.util.List;
+
 import ro.digix.entities.UserFile;
 
 public interface UserFileService {
@@ -11,4 +13,7 @@ public interface UserFileService {
 	public void delete(UserFile user);
 	
 	public void update(UserFile user);
+
+	public List<String> getAllCategories();
+
 }

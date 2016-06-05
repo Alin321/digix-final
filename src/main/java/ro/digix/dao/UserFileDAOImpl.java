@@ -1,5 +1,8 @@
 package ro.digix.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +38,28 @@ public class UserFileDAOImpl implements UserFileDAO {
 	public void delete(UserFile user) {
 		getCurrentSession().delete(user);
 		getCurrentSession().flush();
-		
+
 	}
 
 	@Override
 	public void update(UserFile user) {
 		getCurrentSession().update(user);
 		getCurrentSession().flush();
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<String> getAllCategories() {
+		List<UserFile> filesList = getCurrentSession().createCriteria(UserFile.class).list();
+		List<String> listOfCategories = new ArrayList<>();
+
+		for (UserFile uf : filesList) {
+			if (listOfCategories.indexOf(uf.getType()) == -1) {
+				listOfCategories.add(uf.getType());
+			}
+		}
 		
+		return listOfCategories;
 	}
 }

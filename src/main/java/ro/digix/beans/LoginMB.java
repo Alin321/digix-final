@@ -40,6 +40,7 @@ public class LoginMB extends BaseMB {
 			userMB.setLastName(u.getLastName());
 			userMB.setId(u.getId());
 			userMB.setAvatar(u.getAvatarLocation());
+
 			return getRedirectedURL("afterLogIn.xhtml");
 
 		} else {

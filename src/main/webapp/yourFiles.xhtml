@@ -15,63 +15,82 @@
 </h:head>
 <h:body>
 
-<header>
+	<header>
 
-	<div id="logo">  <a href="index.html"> DigiX </a>  </div>
+	<div id="logo">
+		<a href="index.html"> DigiX </a>
+	</div>
 
-	<div id="search"> 
+	<div id="search">
 
 		<input type="search" name="search" placeholder="search on digiX" />
 	</div>
 
 
-</header>
- 
-<div id="corp">
-  
-	<div id="meniu">
+	</header>
 
-		<div id="identitate">
+	<div id="corp">
 
-			<h:graphicImage  id="imagineAvatar" value="#{userMB.avatar}"
-				onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
-				alt="" />
-			<p>#{userMB.firstName} #{userMB.lastName}</p>
+		<div id="meniu">
+
+			<div id="identitate">
+
+				<h:graphicImage id="imagineAvatar" value="#{userMB.avatar}"
+					onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
+					alt="" />
+				<p>#{userMB.firstName} #{userMB.lastName}</p>
+			</div>
+
+			<div id="navigare">
+
+
+				<ul>
+					<li><a href="#"><b>your files</b></a></li>
+					<li><a href="yourFriendsFiles.xhtml">your friends files</a></li>
+					<li><a href="yourListOfFriends.xhtml">your list of friends</a></li>
+					<li><a href="settings.xhtml"> settings</a></li>
+					<li><a href="index.html">log out</a></li>
+				</ul>
+			</div>
 		</div>
 
-		<div id="navigare">
-		<ul>
-			<li><a href="#"><b>your files</b></a></li>
-			<li><a href="yourFriendsFiles.xhtml">your friends files</a></li>
-			<li><a href="yourListOfFriends.xhtml">your list of friends</a></li>
-			<li><a href="settings.xhtml"> settings</a></li>
-			<li><a href="index.html">log out</a></li>
-		</ul>
+		<div class="continut">
+
+			<div class="titluFisiere">
+				<p>Your files</p>
+			</div>
+
+
+			<div id="YourFiles">
+
+				<ui:repeat value="#{userMB.allCategories}" var="item">
+					<h:form>
+						<h:commandLink action="#{userMB.goToCategory(item)}">
+							<h:panelGroup styleClass="copertaAlbum">
+								<h:outputText value="#{item}" />
+							</h:panelGroup>
+						</h:commandLink>
+					</h:form>
+				</ui:repeat>
+
+				<a class="album" href="upload.html">
+					<div class="copertaAlbum">+ Update</div>
+				</a>
+
+				<div id="imaginiInYourFiles"></div>
+			</div>
+
 		</div>
+
 	</div>
 
-	<div class="continut">
 
-		<div class="titluFisiere"> <p>Your files</p></div>
-
-	
-		<div id="YourFiles">
-			<a class="album" href="#"><div class="copertaAlbum">Fotografii </div></a>
-			<a class="album" href="YourFiles_Videoclipuri"><div class="copertaAlbum" >Videoclipuri</div></a>
-			<a class="album" href="YourFiles_Acte"><div class="copertaAlbum">	Acte</div></a>
-			<a class="album" href="upload.html"><div class="copertaAlbum"> + Update</div></a>
-			<div id="imaginiInYourFiles"> </div>
-		</div>
-
-	</div>
-
-</div>
-
-
-<footer>
-	<p>&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan David <br />
-	All rights reserved<br /> DigiX 2016</p>
-</footer>
+	<footer>
+	<p>
+		&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan
+		David <br /> All rights reserved<br /> DigiX 2016
+	</p>
+	</footer>
 
 
 
