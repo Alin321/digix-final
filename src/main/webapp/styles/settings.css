@@ -9,12 +9,42 @@
 }
 
 input[type=submit]{
+	padding: 5px;
 	border: 0px;
 	background: none;
-	font-size: 18px;	
+	font-variant: small-caps;
+}
+input[type=submit]:hover{
+	cursor: pointer;
+	color: #b2c2bf;
+}
+input[type=button]{
+	padding:5px;
+	margin-left: 50px;
+	border: 0px;
+	background: none;
+	font-variant: small-caps;
+	outline-color:#b2c2bf;
+}
+input[type=submit]:hover{
+	cursor: pointer;
+	color: #b2c2bf;
 }
 
-input[type=button]{
+input[type=password]{
+	overflow: none;
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+    border-radius: 5px; 
+
+	letter-spacing: 3px;
+	width: 300px;
+
+	font-size: 80%;
+	border: 1px solid #b2c2bf;
+	padding: 5px;
+	margin-left: 50px;
 
 }
 
@@ -24,4 +54,10 @@ input[type=button]{
 	height: 180px;
 	width: 180px;
 	border: 1px solid #b2c2bf;
+}
+
+.taguriCss {
+	padding-top: 10px;
+	border-top: 1px #b2c2bf;
+	width:100%;
 }

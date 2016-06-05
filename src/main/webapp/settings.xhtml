@@ -18,13 +18,16 @@
 
 <header>
 
-	<div id="logo">  <a href="afterLogIn.xhtml"> DigiX </a>  </div>
-
-	<div id="search"> 
-		<input type="search" name="search" placeholder="search on digiX" />
+	<div id="logo">
+		<a href="afterLogIn.xhtml"> DigiX </a>
 	</div>
 
-
+	<h:panelGroup id="search" stlye=" border:1px solid black;">
+		<h:form style="width:1000px; display:inline; ">
+			<h:inputText id="search" type="text" value="#{searchMB.searchQuery}" styleClass="searchBox" p:placeholder="search on DigiX"/>
+			<h:commandButton value="" action="#{searchMB.search}" stlyeClass="butonIdiot"/>
+		</h:form>
+	</h:panelGroup>
 </header>
 
 <div id="corp">
@@ -52,10 +55,10 @@
 	</div>
 
  
-	<div class="continut">
+	<div class="continut" style="height: 500px"	>
 
-		<div class="titluFisiere">Settings</div>
-		<div id="Settings" >
+		<div class="titluFisiere"><p>Settings</p></div>
+		<div id="Settings"  style="width: 100%;" >
 		
 		Change your password: <br /><br />
 		Insert your old password:<br /><input type="password" name="password" placeholder=" " /> <br />
@@ -64,9 +67,10 @@
 		Delete your account:
 		<input type="button" value="Delete" />
 		<br /><br /><br />
-
-		<input type="submit" name="submit" />
+		<div class="butonOk" style="width:100%; text-align:right; padding-top:20px; padding-bottom:20px; margin-top:150px; ">
+		<input type="submit" name="SUBMIT" value="SUBMIT" />
 		</div>
+	</div>	
 
 
 	</div>

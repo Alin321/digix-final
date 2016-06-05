@@ -18,13 +18,16 @@
 
 <header>
 
-	<div id="logo">  <a href="afterLogIn.xhtml"> DigiX </a>  </div>
-
-	<div id="search"> 
-		<input type="search" name="search" placeholder="search on digiX" />
+	<div id="logo">
+		<a href="afterLogIn.xhtml"> DigiX </a>
 	</div>
 
-
+	<h:panelGroup id="search" stlye=" border:1px solid black;">
+		<h:form style="width:1000px; display:inline; ">
+			<h:inputText id="search" type="text" value="#{searchMB.searchQuery}" styleClass="searchBox" p:placeholder="search on DigiX"/>
+			<h:commandButton value="" action="#{searchMB.search}" stlyeClass="butonIdiot"/>
+		</h:form>
+	</h:panelGroup>
 </header>
 
 <div id="corp">
@@ -86,9 +89,11 @@
 							</h:panelGroup> 
 								
 						<br />
-						<ui:repeat value="#{file.fileTags}" var="tag">
-								#{tag.tag}
-						</ui:repeat>
+						<div class="taguriCss">
+							<ui:repeat value="#{file.fileTags}" var="tag">
+									#{tag.tag}
+							</ui:repeat>
+						</div>
 						<br />
  							File added by #{userMB.getUserById(file.user.id).firstName}   on: #{file.dateAdded}
  						<br /> <br />

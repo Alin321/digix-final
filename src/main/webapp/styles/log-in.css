@@ -25,6 +25,7 @@ input:focus {
 	outline:none !important;
     border: 2px solid #c0ded9;
     font-style: bolder;
+    background-color: white;
 }
 
 input[type=submit]{
@@ -41,7 +42,10 @@ input[type=submit]{
 	font-variant: normal;
 }
 
-
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+  
 
 
 
