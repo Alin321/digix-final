@@ -77,5 +77,15 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getAllMyFriends(id);
 	}
 
+	@Override
+	public List<UserFile> getAllMineAndFriendsFiles(long id) {
+		return userDAO.getAllMineAndFriendsFiles(id);
+	}
+
+	@Override
+	public List<UserFile> getAllMineAndFriendsFiles(long id, boolean b, boolean c, boolean d) {
+		return userDAO.getAllMineAndFriendsFiles(id, b, c, d);
+	}
+
 
 }

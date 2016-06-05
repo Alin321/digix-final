@@ -31,4 +31,8 @@ public interface UserDAO extends AbstractDAO {
 	public List<UserFile> getAllFriendFiles(long id);	
 	
 	public List<User> getAllMyFriends(long id);	
+	
+	public List<UserFile> getAllMineAndFriendsFiles(long id);	
+	
+	public List<UserFile> getAllMineAndFriendsFiles(long id, boolean b, boolean c, boolean d);	
 }

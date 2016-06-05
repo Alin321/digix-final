@@ -21,7 +21,7 @@ import ro.digix.entities.UserFriend;
 @Repository
 @Transactional
 public class UserDAOImpl implements UserDAO {
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -32,10 +32,10 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User create(User user) {
-		
+
 		getCurrentSession().save(user);
 		getCurrentSession().flush();
-			
+
 		return user;
 	}
 
@@ -48,14 +48,14 @@ public class UserDAOImpl implements UserDAO {
 	public void delete(User user) {
 		getCurrentSession().delete(user);
 		getCurrentSession().flush();
-		
+
 	}
 
 	@Override
 	public void update(User user) {
 		getCurrentSession().saveOrUpdate(user);
 		getCurrentSession().flush();
-		
+
 	}
 
 	@SuppressWarnings("unchecked")
@@ -92,11 +92,11 @@ public class UserDAOImpl implements UserDAO {
 		Query query = getCurrentSession().createQuery(hql);
 		query.setParameter("email", email);
 		List<User> results = (List<User>) query.list();
-		
-		if(results.size() > 0) {
+
+		if (results.size() > 0) {
 			return true;
 		}
-		
+
 		return false;
 	}
 
@@ -107,7 +107,7 @@ public class UserDAOImpl implements UserDAO {
 		Query query = getCurrentSession().createQuery(hql);
 		query.setParameter("id", id);
 		List<UserFile> results = (List<UserFile>) query.list();
-		
+
 		return results;
 	}
 
@@ -118,12 +118,12 @@ public class UserDAOImpl implements UserDAO {
 		Query query = getCurrentSession().createQuery(hql);
 		query.setParameter("email", email);
 		List<User> results = (List<User>) query.list();
-		
+
 		User u = null;
-		if(results.size() > 0) {
+		if (results.size() > 0) {
 			u = results.get(0);
 		}
-		
+
 		return u;
 	}
 
@@ -131,47 +131,46 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<UserFile> getAllFriendFiles(long id) {
 		List<UserFile> listToReturn = new ArrayList<>();
-		
+
 		String hql = "FROM UserFriend UF where UF.user.id = :id";
 		Query query = getCurrentSession().createQuery(hql);
 		query.setParameter("id", id);
 		List<UserFriend> usersFriends = (List<UserFriend>) query.list();
-		for(UserFriend uf : usersFriends) {
-			hql = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac" ;
+		for (UserFriend uf : usersFriends) {
+			hql = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac";
 			Query query2 = getCurrentSession().createQuery(hql);
 			query2.setParameter("id", uf.getFriendId());
 			query2.setParameter("ac", "P");
 			List<UserFile> results = (List<UserFile>) query2.list();
-			
-			for(UserFile usf : results) {
+
+			for (UserFile usf : results) {
 				listToReturn.add(usf);
 			}
 		}
-		
+
 		String hqlA = "FROM UserFriend UF where UF.friendId = :id";
 		Query queryA = getCurrentSession().createQuery(hqlA);
 		queryA.setParameter("id", id);
 		List<UserFriend> usersFriends2 = (List<UserFriend>) queryA.list();
-		for(UserFriend uf : usersFriends2) {
-			hqlA = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac" ;
+		for (UserFriend uf : usersFriends2) {
+			hqlA = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac";
 			Query query2A = getCurrentSession().createQuery(hqlA);
 			query2A.setParameter("id", uf.getUser().getId());
 			query2A.setParameter("ac", "P");
 			List<UserFile> results = (List<UserFile>) query2A.list();
-			
-			for(UserFile usf : results) {
+
+			for (UserFile usf : results) {
 				listToReturn.add(usf);
 			}
 		}
-		
-		
+
 		Collections.sort(listToReturn, new Comparator<UserFile>() {
 			@Override
 			public int compare(UserFile o1, UserFile o2) {
 				return o2.getDateAdded().compareTo(o1.getDateAdded());
-			}			
+			}
 		});
-		
+
 		return listToReturn;
 	}
 
@@ -179,29 +178,163 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<User> getAllMyFriends(long id) {
 		List<User> listToReturn = new ArrayList<>();
-		
+
 		String hql = "FROM UserFriend UF where UF.user.id = :id";
 		Query query = getCurrentSession().createQuery(hql);
 		query.setParameter("id", id);
 		List<UserFriend> usersFriends = (List<UserFriend>) query.list();
-		for(UserFriend uf : usersFriends) {
+		for (UserFriend uf : usersFriends) {
 			listToReturn.add(getUserById(uf.getFriendId()));
 		}
-		
+
 		String hqlA = "FROM UserFriend UF where UF.friendId = :id";
 		Query queryA = getCurrentSession().createQuery(hqlA);
 		queryA.setParameter("id", id);
 		List<UserFriend> usersFriends2 = (List<UserFriend>) queryA.list();
-		for(UserFriend uf : usersFriends2) {
+		for (UserFriend uf : usersFriends2) {
 			listToReturn.add(getUserById(uf.getUser().getId()));
 		}
-		
+
 		Collections.sort(listToReturn, new Comparator<User>() {
 			@Override
 			public int compare(User o1, User o2) {
 				return o1.getFirstName().compareTo(o2.getFirstName());
-			}			
+			}
 		});
+		return listToReturn;
+	}
+
+	@Override
+	public List<UserFile> getAllMineAndFriendsFiles(long id) {
+		List<UserFile> listToReturn = new ArrayList<>();
+		listToReturn.addAll(getAllFriendFiles(id));
+		listToReturn.addAll(getAllFiles(id));
+		return listToReturn;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserFile> getAllMineAndFriendsFiles(long id, boolean b, boolean c, boolean d) {
+		List<UserFile> listToReturn = new ArrayList<>();
+
+		String hql = "FROM UserFriend UF where UF.user.id = :id";
+		Query query = getCurrentSession().createQuery(hql);
+		query.setParameter("id", id);
+		List<UserFriend> usersFriends = (List<UserFriend>) query.list();
+		for (UserFriend uf : usersFriends) {
+			Query query2 = null;
+			if (!b && !c && d) {
+				hql = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac and uf.type=:type";
+				query2 = getCurrentSession().createQuery(hql);
+				query2.setParameter("type", "act");
+			}
+			
+			if(!b && c && !d) {
+				hql = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac and uf.type=:type";
+				query2 = getCurrentSession().createQuery(hql);
+				query2.setParameter("type", "video");
+			}
+			
+			if(b && !c && !d) {
+				hql = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac and uf.type=:type";
+				query2 = getCurrentSession().createQuery(hql);
+				query2.setParameter("type", "poza");
+			}
+			
+			if(b && c && !d){
+				hql = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac and (uf.type=:type1 or uf.type=:type2)";
+				query2 = getCurrentSession().createQuery(hql);
+				query2.setParameter("type1", "poza");
+				query2.setParameter("type2", "video");
+			}
+
+			query2.setParameter("id", uf.getFriendId());
+			query2.setParameter("ac", "P");
+			List<UserFile> results = (List<UserFile>) query2.list();
+
+			for (UserFile usf : results) {
+				listToReturn.add(usf);
+			}
+		}
+
+		String hqlA = "FROM UserFriend UF where UF.friendId = :id";
+		Query queryA = getCurrentSession().createQuery(hqlA);
+		queryA.setParameter("id", id);
+		List<UserFriend> usersFriends2 = (List<UserFriend>) queryA.list();
+		for (UserFriend uf : usersFriends2) {
+			Query query2A = null;
+			if (!b && !c && d) {
+				hql = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac and uf.type=:type";
+				query2A = getCurrentSession().createQuery(hql);
+				query2A.setParameter("type", "act");
+			}
+			
+			if(!b && c && !d) {
+				hql = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac and uf.type=:type";
+				query2A = getCurrentSession().createQuery(hql);
+				query2A.setParameter("type", "video");
+			}
+			
+			if(b && !c && !d) {
+				hql = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac and uf.type=:type";
+				query2A = getCurrentSession().createQuery(hql);
+				query2A.setParameter("type", "poza");
+			}
+			
+			if(b && c && !d){
+				hql = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac and (uf.type=:type1 or uf.type=:type2)";
+				query2A = getCurrentSession().createQuery(hql);
+				query2A.setParameter("type1", "poza");
+				query2A.setParameter("type2", "video");
+			}
+			query2A.setParameter("id", uf.getUser().getId());
+			query2A.setParameter("ac", "P");
+			List<UserFile> results = (List<UserFile>) query2A.list();
+			
+			for (UserFile usf : results) {
+				listToReturn.add(usf);
+			}			
+		}
+
+		Query query3 = null;
+		if (!b && !c && d) {
+			hql = "FROM UserFile uf where uf.user.id = :id and uf.type=:type";
+			query3 = getCurrentSession().createQuery(hql);
+			query3.setParameter("type", "act");
+		}
+		
+		if(!b && c && !d) {
+			hql = "FROM UserFile uf where uf.user.id = :id and uf.type=:type";
+			query3 = getCurrentSession().createQuery(hql);
+			query3.setParameter("type", "video");
+		}
+		
+		if(b && !c && !d) {
+			hql = "FROM UserFile uf where uf.user.id = :id and uf.type=:type";
+			query3 = getCurrentSession().createQuery(hql);
+			query3.setParameter("type", "poza");
+		}
+		
+		if(b && c && !d){
+			hql = "FROM UserFile uf where uf.user.id = :id and (uf.type=:type1 or uf.type=:type2)";
+			query3 = getCurrentSession().createQuery(hql);
+			query3.setParameter("type1", "poza");
+			query3.setParameter("type2", "video");
+		}
+		query3.setParameter("id", id);
+		List<UserFile> results = (List<UserFile>) query3.list();
+
+		for (UserFile usf : results) {
+			listToReturn.add(usf);
+		}
+		
+		Collections.sort(listToReturn, new Comparator<UserFile>() {
+			@Override
+			public int compare(UserFile o1, UserFile o2) {
+				return o2.getDateAdded().compareTo(o1.getDateAdded());
+			}
+		});
+
 		return listToReturn;
 	}
 }

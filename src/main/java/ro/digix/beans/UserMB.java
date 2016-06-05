@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,27 @@ public class UserMB {
 	private String lastName;
 	private String avatar;
 
+	@RequestScoped
+	private String searchedQuery;
 	private List<UserFile> searchResult;
+
+	private int listSize;
+
+	public int getListSize() {
+		return searchResult.size();
+	}
+
+	public String getSearchedQuery() {
+		return searchedQuery;
+	}
+
+	public void setSearchedQuery(String searchedQuery) {
+		this.searchedQuery = searchedQuery;
+	}
+
+	public void setListSize(int listSize) {
+		this.listSize = searchResult.size();
+	}
 
 	@PostConstruct
 	public void init() {
