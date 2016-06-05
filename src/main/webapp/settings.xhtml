@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+	<title>Settings</title>
+	<link href="styles/afterLogIn.css" rel="stylesheet" type="text/css" />
+	<link href="styles/footer.css" rel="stylesheet" type="text/css" />
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+
+</h:head>
+<h:body>
+
+<header>
+
+	<div id="logo">  <a href="afterLogIn.xhtml"> DigiX </a>  </div>
+
+	<div id="search"> 
+		<input type="search" name="search" placeholder="search on digiX" />
+	</div>
+
+
+</header>
+
+<div id="corp">
+   
+	<div id="meniu">
+
+		<div id="identitate">
+
+				<h:graphicImage  id="imagineAvatar" value="#{userMB.avatar}"
+					onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
+					alt="" />
+				<p>#{userMB.firstName} #{userMB.lastName}</p>
+		</div>
+
+		<div id="navigare">
+		<ul>
+		<li><a href="yourFiles.xhtml">your files</a></li>
+		<li><a href="yourFriendsFiles.xhtml">your friends files</a></li>
+		<li><a href="yourListOfFriends.xhtml">your list of friends</a></li>
+		<li><a href="#"> <b>settings</b></a></li>
+		<li><a href="index.html">log out</a></li>
+		</ul>
+		</div>
+	
+	</div>
+
+
+	<div class="continut">
+
+		<div id="Settings">
+		<div class="titluFisiere">Settings</div>
+		Change your password: <br /><br />
+		Insert your old password:<br /><input type="password" name="password" placeholder=" " /> <br />
+		Insert your new password:<br /><input type="password" name="password" placeholder=" " /> <br />
+		Insert your new password again:<br /><input type="password" name="password" placeholder=" " /><br /><br />
+	
+		Delete your account:
+		<input type="button" value="Delete" />
+
+
+		<input type="submit" name="submit" />
+		</div>
+
+
+	</div>
+
+</div>
+
+<footer>
+	<p>&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan David <br />
+	All rights reserved<br /> DigiX 2016</p>
+</footer>
+
+</h:body>
+
+</html>

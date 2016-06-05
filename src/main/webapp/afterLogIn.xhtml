@@ -20,7 +20,7 @@
 	<header>
 
 	<div id="logo">
-		<a href="index.html"> DigiX </a>
+		<a href="afterLogIn.xhtml"> DigiX </a>
 	</div>
 
 	<div id="search">
@@ -45,10 +45,10 @@
 
 			<div id="navigare">
 				<ul>
-					<li><a href="yourFiles.html">your files</a></li>
-					<li><a href="yourFriendsFiles.html">your friends files</a></li>
-					<li><a href="yourListOfFriends.html">your list of friends</a></li>
-					<li><a href="settings.html"> settings</a></li>
+					<li><a href="yourFiles.xhtml">your files</a></li>
+					<li><a href="yourFriendsFiles.xhtml">your friends files</a></li>
+					<li><a href="yourListOfFriends.xhtml">your list of friends</a></li>
+					<li><a href="settings.xhtml"> settings</a></li>
 					<li><a href="index.html">log out</a></li>
 				</ul>
 			</div>
@@ -61,7 +61,7 @@
 				<p>Continut</p>
 			</div>
 			<div id="OnDigix">
-				<ui:repeat value="#{userMB.allUserFriendFiles}" var="file">
+				<ui:repeat value="#{userMB.allUserFiles}" var="file">
 
 					<div class="fisiereAfisate">
 							<!--  display video -->
@@ -89,9 +89,8 @@
 								#{tag.tag}
 						</ui:repeat>
 						<br />
-						<br /> 
-							File added by #{userMB.getUserById(file.user.id).firstName}   on: #{file.dateAdded}
-						<br />
+						<h:selectBooleanCheckbox />
+						Share this file with your friends. <br /> <br />
 					</div>
 
 				</ui:repeat>
