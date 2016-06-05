@@ -61,7 +61,7 @@
 				<p>Continut</p>
 			</div>
 			<div id="OnDigix">
-				<ui:repeat value="#{userMB.allUserFiles}" var="file">
+				<ui:repeat value="#{userMB.allUserFriendFiles}" var="file">
 
 					<div class="fisiereAfisate">
 							<!--  display video -->
@@ -89,8 +89,8 @@
 								#{tag.tag}
 						</ui:repeat>
 						<br />
-						<h:selectBooleanCheckbox />
-						Share this file with your friends. <br /> <br />
+ 							File added by #{userMB.getUserById(file.user.id).firstName}   on: #{file.dateAdded}
+ 						<br /> <br />
 					</div>
 
 				</ui:repeat>
