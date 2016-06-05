@@ -16,4 +16,6 @@ public interface UserFileDAO extends AbstractDAO {
 	public void update(UserFile user);
 
 	public List<String> getAllCategories();
+
+	public long getNewId();
 }

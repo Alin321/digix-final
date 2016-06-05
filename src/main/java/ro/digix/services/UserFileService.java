@@ -16,4 +16,6 @@ public interface UserFileService {
 
 	public List<String> getAllCategories();
 
+	public long getNewId();
+
 }

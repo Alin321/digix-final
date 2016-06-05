@@ -3,6 +3,7 @@ package ro.digix.beans;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -13,6 +14,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import ro.digix.constants.ApplicationConstants;
+import ro.digix.entities.User;
+import ro.digix.entities.UserFile;
 import ro.digix.services.UserFileService;
 
 @Component("uploadMB")
@@ -68,6 +71,16 @@ public class UploadMB extends BaseMB {
 
 		file1.write(ApplicationConstants.CALE_UPLOAD + File.separator + userMB.getEmail() + File.separator
 				+ getFilename(file1));
+		User user = new User();
+		user.setId(userMB.getId());
+		UserFile uf = new UserFile();
+		uf.setAccessType("S");
+		uf.setDateAdded(Calendar.getInstance().getTime());
+		uf.setId(userFileService.getNewId());
+		uf.setUser(user);
+		uf.setLocation("upload" + File.separator + userMB.getEmail() + File.separator + getFilename(file1));
+		
+		userFileService.create(uf);
 		return getRedirectedURL("yourFiles.xhtml");
 	}
 

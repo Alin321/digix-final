@@ -104,4 +104,8 @@ public class UserMB {
 	public String goToCategory(String s) {
 		return null;
 	}
+	
+	public List<User> getAllMyFriends(){
+		return userService.getAllMyFriends(id);
+	}
 }
