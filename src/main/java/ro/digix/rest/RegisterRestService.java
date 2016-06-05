@@ -22,6 +22,7 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ro.digix.constants.ApplicationConstants;
 import ro.digix.entities.User;
 import ro.digix.services.UserService;
 
@@ -80,7 +81,7 @@ public class RegisterRestService {
 		u.setBirthDate(date);
 		userService.create(u);
 		
-		java.nio.file.Path path = Paths.get("D://workspace/digix_github/digix-final/src/main/webapp/upload" + File.separator + email);
+		java.nio.file.Path path = Paths.get(ApplicationConstants.CALE_UPLOAD + File.separator + email);
 
 		try {
 			Files.createDirectories(path);

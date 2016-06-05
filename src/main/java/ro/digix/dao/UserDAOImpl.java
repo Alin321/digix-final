@@ -147,6 +147,24 @@ public class UserDAOImpl implements UserDAO {
 				listToReturn.add(usf);
 			}
 		}
+		
+		String hqlA = "FROM UserFriend UF where UF.friendId = :id";
+		Query queryA = getCurrentSession().createQuery(hqlA);
+		queryA.setParameter("id", id);
+		List<UserFriend> usersFriends2 = (List<UserFriend>) queryA.list();
+		for(UserFriend uf : usersFriends2) {
+			hqlA = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac" ;
+			Query query2A = getCurrentSession().createQuery(hqlA);
+			query2A.setParameter("id", uf.getUser().getId());
+			query2A.setParameter("ac", "P");
+			List<UserFile> results = (List<UserFile>) query2A.list();
+			
+			for(UserFile usf : results) {
+				listToReturn.add(usf);
+			}
+		}
+		
+		
 		Collections.sort(listToReturn, new Comparator<UserFile>() {
 			@Override
 			public int compare(UserFile o1, UserFile o2) {
