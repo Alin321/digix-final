@@ -8,63 +8,78 @@
 <h:head>
 	<title>My list of friends</title>
 	<link href="styles/afterLogIn.css" rel="stylesheet" type="text/css" />
-	<link href="styles/footer.css" rel="stylesheet" type="text/css" />  
+	<link href="styles/footer.css" rel="stylesheet" type="text/css" />
 	<script src="//code.jquery.com/jquery-latest.js"></script>
- 
+
 </h:head>
 <h:body>
 
-<header>
+	<header>
 
-	<div id="logo"> <a href="afterLogIn.xhtml"> DigiX </a> </div>
+	<div id="logo">
+		<a href="afterLogIn.xhtml"> DigiX </a>
+	</div>
 
-	<div id="search"> 
+	<div id="search">
 
 		<input type="search" name="search" placeholder="search on digiX" />
 	</div>
 
 
-</header>
+	</header>
 
-<div id="corp"> 
+	<div id="corp">
 
-	<div id="meniu">
+		<div id="meniu">
 
-		<div id="identitate">
+			<div id="identitate">
 
-			<h:graphicImage  id="imagineAvatar" value="#{userMB.avatar}"
-				onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
-				alt="" />
-			<p>#{userMB.firstName} #{userMB.lastName}</p>
+				<h:graphicImage id="imagineAvatar" value="#{userMB.avatar}"
+					onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
+					alt="" />
+				<p>#{userMB.firstName} #{userMB.lastName}</p>
+			</div>
+
+			<div id="navigare">
+				<ul>
+					<li><a href="yourFiles.xhtml">my files</a></li>
+					<li><a href="yourFriendsFiles.xhtml">my friends files</a></li>
+					<li><a href="#"><b>my list of friends</b></a></li>
+					<li><a href="settings.xhtml"> settings</a></li>
+					<li><a href="index.html">log out</a></li>
+				</ul>
+			</div>
+
 		</div>
 
-		<div id="navigare"> 
-			<ul>
-				<li><a href="yourFiles.xhtml">my files</a></li>
-				<li><a href="yourFriendsFiles.xhtml">my friends files</a></li>
-				<li><a href="#"><b>my list of friends</b></a></li>
-				<li><a href="settings.xhtml"> settings</a></li>
-				<li><a href="index.html">log out</a></li>
-			</ul>
+
+		<div class="continut">
+
+			<ui:repeat value="#{userMB.allMyFriends}" var="friend">
+				<h:panelGroup styleClass="titluFisiere">
+					<h:graphicImage value="#{friend.avatarLocation}" width="200"
+						height="200" />
+					<br />
+					<h:form>
+						<h:commandLink action="#{userMB.goToProfile(friend.id)}">
+						<h:outputText value="#{friend.firstName} #{friend.lastName}" />
+						</h:commandLink>
+					</h:form>
+
+					<br />
+				</h:panelGroup>
+			</ui:repeat>
+
 		</div>
-		
+
 	</div>
 
-
-	<div class="continut">
-
-		<div class="titluFisiere">
-			<p>My list of friends</p>
-		</div>
-
-	</div>
-
-</div>
-
-<footer>
-	<p>&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan David <br />
-	All rights reserved<br /> DigiX 2016</p>
-</footer>
+	<footer>
+	<p>
+		&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan
+		David <br /> All rights reserved<br /> DigiX 2016
+	</p>
+	</footer>
 
 
 

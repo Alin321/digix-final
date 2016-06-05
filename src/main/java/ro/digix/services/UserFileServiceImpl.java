@@ -43,4 +43,9 @@ public class UserFileServiceImpl implements UserFileService {
 		return userFileDao.getAllCategories();
 	}
 
+	@Override
+	public long getNewId() {
+		return userFileDao.getNewId();
+	}
+
 }

@@ -174,4 +174,34 @@ public class UserDAOImpl implements UserDAO {
 		
 		return listToReturn;
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> getAllMyFriends(long id) {
+		List<User> listToReturn = new ArrayList<>();
+		
+		String hql = "FROM UserFriend UF where UF.user.id = :id";
+		Query query = getCurrentSession().createQuery(hql);
+		query.setParameter("id", id);
+		List<UserFriend> usersFriends = (List<UserFriend>) query.list();
+		for(UserFriend uf : usersFriends) {
+			listToReturn.add(getUserById(uf.getFriendId()));
+		}
+		
+		String hqlA = "FROM UserFriend UF where UF.friendId = :id";
+		Query queryA = getCurrentSession().createQuery(hqlA);
+		queryA.setParameter("id", id);
+		List<UserFriend> usersFriends2 = (List<UserFriend>) queryA.list();
+		for(UserFriend uf : usersFriends2) {
+			listToReturn.add(getUserById(uf.getUser().getId()));
+		}
+		
+		Collections.sort(listToReturn, new Comparator<User>() {
+			@Override
+			public int compare(User o1, User o2) {
+				return o1.getFirstName().compareTo(o2.getFirstName());
+			}			
+		});
+		return listToReturn;
+	}
 }

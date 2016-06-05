@@ -1,7 +1,10 @@
 package ro.digix.beans;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -103,5 +106,14 @@ public class UserMB {
 	
 	public String goToCategory(String s) {
 		return null;
+	}
+	
+	public List<User> getAllMyFriends(){
+		return userService.getAllMyFriends(id);
+	}
+	
+	public void goToProfile(long id) throws IOException {
+		String uri = "success.xhtml?id="+id;
+		FacesContext.getCurrentInstance().getExternalContext().redirect(uri);
 	}
 }

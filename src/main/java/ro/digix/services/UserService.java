@@ -26,5 +26,7 @@ public interface UserService {
 
 	public boolean checkIfEmailExists(String email);
 
-	public List<UserFile> getAllFriendFiles(long id);	
+	public List<UserFile> getAllFriendFiles(long id);
+
+	public List<User> getAllMyFriends(long id);	
 }
