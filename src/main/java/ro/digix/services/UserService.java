@@ -24,5 +24,7 @@ public interface UserService {
 	
 	public boolean authenticate(String email, String password);
 
-	public boolean checkIfEmailExists(String email);	
+	public boolean checkIfEmailExists(String email);
+
+	public List<UserFile> getAllFriendFiles(long id);	
 }

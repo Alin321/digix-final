@@ -32,9 +32,6 @@ public class UserFriend implements Serializable {
 	@Column(name="FRIEND_ID")
 	private long friendId;
 
-	@Column(name="LOG_ENTRY")
-	private long logEntry;
-
 	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -57,14 +54,6 @@ public class UserFriend implements Serializable {
 
 	public void setFriendId(long friendId) {
 		this.friendId = friendId;
-	}
-
-	public long getLogEntry() {
-		return this.logEntry;
-	}
-
-	public void setLogEntry(long logEntry) {
-		this.logEntry = logEntry;
 	}
 
 	public User getUser() {

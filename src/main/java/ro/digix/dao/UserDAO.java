@@ -27,4 +27,6 @@ public interface UserDAO extends AbstractDAO {
 	boolean authenticate(String email, String password);
 
 	public boolean checkIfEmailExists(String email);
+	
+	public List<UserFile> getAllFriendFiles(long id);	
 }

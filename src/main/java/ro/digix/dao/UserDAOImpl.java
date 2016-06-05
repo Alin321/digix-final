@@ -1,5 +1,8 @@
 package ro.digix.dao;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -13,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ro.digix.entities.User;
 import ro.digix.entities.UserFile;
+import ro.digix.entities.UserFriend;
 
 @Repository
 @Transactional
@@ -121,5 +125,35 @@ public class UserDAOImpl implements UserDAO {
 		}
 		
 		return u;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserFile> getAllFriendFiles(long id) {
+		List<UserFile> listToReturn = new ArrayList<>();
+		
+		String hql = "FROM UserFriend UF where UF.user.id = :id";
+		Query query = getCurrentSession().createQuery(hql);
+		query.setParameter("id", id);
+		List<UserFriend> usersFriends = (List<UserFriend>) query.list();
+		for(UserFriend uf : usersFriends) {
+			hql = "FROM UserFile uf where uf.user.id = :id and uf.accessType=:ac" ;
+			Query query2 = getCurrentSession().createQuery(hql);
+			query2.setParameter("id", uf.getFriendId());
+			query2.setParameter("ac", "P");
+			List<UserFile> results = (List<UserFile>) query2.list();
+			
+			for(UserFile usf : results) {
+				listToReturn.add(usf);
+			}
+		}
+		Collections.sort(listToReturn, new Comparator<UserFile>() {
+			@Override
+			public int compare(UserFile o1, UserFile o2) {
+				return o2.getDateAdded().compareTo(o1.getDateAdded());
+			}			
+		});
+		
+		return listToReturn;
 	}
 }

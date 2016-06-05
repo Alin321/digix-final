@@ -85,4 +85,11 @@ public class UserMB {
 		return userService.getAllFiles(id);
 	}
 
+	public List<UserFile> getAllUserFriendFiles() {
+		return userService.getAllFriendFiles(id);
+	}
+	
+	public User getUserById(long id) {
+		return userService.getUserById(id);
+	}
 }
