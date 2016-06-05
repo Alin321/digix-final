@@ -163,6 +163,8 @@ public class UserDAOImpl implements UserDAO {
 				listToReturn.add(usf);
 			}
 		}
+		
+		listToReturn.addAll(getAllFiles(id));
 
 		Collections.sort(listToReturn, new Comparator<UserFile>() {
 			@Override
