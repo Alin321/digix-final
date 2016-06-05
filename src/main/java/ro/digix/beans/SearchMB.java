@@ -89,30 +89,16 @@ public class SearchMB extends BaseMB {
 		if (askedForFiles()) {
 			file = true;
 		}
-		
-		if (video) {
-			System.out.println("video");
-		}
-		if(picture) {
-			System.out.println("picture");
-		}
-		if(file){
-			System.out.println("file");
-		}
+	
 		if (!picture && !video && !file) {
-			System.out.println("Am intrat in toate");
 			searchThroughAllFiles();
 		} else if (!video && !file && picture) {
-			System.out.println("Am intrat in poze");
 			searchThroughPictures();
 		} else if (!picture && !file && video) {
-			System.out.println("Am intrat in filme");
 			searchThroughVideos();
 		} else if (!picture && !video && file) {
-			System.out.println("Am intrat in fisiere");
 			searchThroughFiles();
 		} else if (!file) {
-			System.out.println("Am intrat in poze si filme");
 			searchThroughPicturesAndVideos();
 		}
 		userMB.setSearchedQuery(searchQuery);
@@ -228,14 +214,12 @@ public class SearchMB extends BaseMB {
 
 	private boolean askedForVideos() {
 		String[] words = searchQuery.split("\\W+");
-		System.out.println("Asked for videos " + words.length);
 		if (words.length > 1) {
 			if (searchForVideoWords(words[0])) {
 				return true;
 			}
 		}
 		if (words.length > 3) {
-			System.out.println("urmeaza sa caut in " + words[2]);
 			if (searchForVideoWords(words[2])) {
 				return true;
 			}
