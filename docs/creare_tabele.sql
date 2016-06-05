@@ -106,11 +106,11 @@ insert into user_files values(16,102,'video','upload/alin.cuzuc@yahoo.com/video.
 insert into user_files values(17,102,'poza','upload/alin.cuzuc@yahoo.com/poza2.jpg',sysdate,'P');
 insert into user_files values(18,100,'video','upload/sturza.razvan@yahoo.com/twenty.mp4',sysdate,'P');
 insert into user_files values(19,102,'video','upload/alin.cuzuc@yahoo.com/bro.mp4',sysdate,'P');
-insert into user_files values(20,103,'poza','upload/andreea.sacara@yahoo.com/poza1.jpg',sysdate,'P');
-insert into user_files values(21,103,'poza','upload/andreea.sacara@yahoo.com/poza2.jpg',sysdate,'S');
-insert into user_files values(22,103,'poza','upload/andreea.sacara@yahoo.com/poza3.jpg',sysdate,'P');
+insert into user_files values(20,103,'poza1','upload/andreea.sacara@yahoo.com/poza1.jpg',sysdate,'P');
+insert into user_files values(21,103,'poza2','upload/andreea.sacara@yahoo.com/poza2.jpg',sysdate,'S');
+insert into user_files values(22,103,'poza3','upload/andreea.sacara@yahoo.com/poza3.jpg',sysdate,'P');
 insert into user_files values(23,103,'video','upload/andreea.sacara@yahoo.com/visine.mp4',sysdate,'P');
-insert into user_files values(24,101,'poza','upload/stefan.david@yahoo.com/poza1.jpg',TO_DATE('01/05/1971', 'dd/mm/yyyy'),'P');
+insert into user_files values(24,101,'poza','upload/stefan.david@yahoo.com/poza1.jpg',sysdate,'P');
 insert into user_files values(25,101,'poza','upload/stefan.david@yahoo.com/poza2.jpg',sysdate,'S');
 insert into user_files values(26,101,'poza','upload/stefan.david@yahoo.com/poza3.jpg',sysdate,'P');
 insert into user_files values(27,101,'video','upload/stefan.david@yahoo.com/pants.mp4',sysdate,'P');
@@ -252,6 +252,20 @@ begin
   end loop;
 end;
 /
+declare
+  v_date date;
+  nr_files number:=0;
+  v_i number;
+begin
+  select count(*) into nr_files from user_files;
+  for v_i in 1..nr_files loop
+    SELECT TO_DATE(TRUNC(DBMS_RANDOM.VALUE(TO_CHAR(DATE '2016-01-01','J'),TO_CHAR(DATE '2016-05-06','J'))),'J') into v_date FROM DUAL;
+    update user_files set date_added=v_date where id=v_i;
+  end loop;
+end;
+
+/
+--SELECT TO_DATE(TRUNC(DBMS_RANDOM.VALUE(TO_CHAR(DATE '2016-01-01','J'),TO_CHAR(DATE '2016-05-06','J'))),'J') FROM DUAL;
 --select * from users;
 --select * from user_logs;
 --select * from user_files;
