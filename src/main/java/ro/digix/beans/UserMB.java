@@ -1,9 +1,11 @@
 package ro.digix.beans;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +26,28 @@ public class UserMB {
 
 	@Autowired
 	UserFileService userFileService;
-	
+
 	private long id;
 	private Date birthDate;
 	private String email;
 	private String firstName;
 	private String lastName;
 	private String avatar;
+
+	private List<UserFile> searchResult;
+
+	@PostConstruct
+	public void init() {
+		searchResult = new ArrayList<>();
+	}
+
+	public List<UserFile> getSearchResult() {
+		return searchResult;
+	}
+
+	public void setSearchResult(List<UserFile> searchResult) {
+		this.searchResult = searchResult;
+	}
 
 	public String getAvatar() {
 		return avatar;
@@ -88,32 +105,32 @@ public class UserMB {
 		return userService.getAll();
 	}
 
-	public List<UserFile> getAllUserFiles() {
-		return userService.getAllFiles(id);
+	public List<UserFile> getAllUserFiles(long auxId) {
+		return userService.getAllFiles(auxId);
 	}
 
 	public List<UserFile> getAllUserFriendFiles() {
 		return userService.getAllFriendFiles(id);
 	}
-	
+
 	public User getUserById(long id) {
 		return userService.getUserById(id);
 	}
-	
+
 	public List<String> getAllCategories() {
 		return userFileService.getAllCategories();
 	}
-	
+
 	public String goToCategory(String s) {
 		return null;
 	}
-	
-	public List<User> getAllMyFriends(){
+
+	public List<User> getAllMyFriends() {
 		return userService.getAllMyFriends(id);
 	}
-	
+
 	public void goToProfile(long id) throws IOException {
-		String uri = "success.xhtml?id="+id;
+		String uri = "userProfile.xhtml?id=" + id;
 		FacesContext.getCurrentInstance().getExternalContext().redirect(uri);
 	}
 }

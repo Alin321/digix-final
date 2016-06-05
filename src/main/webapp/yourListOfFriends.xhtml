@@ -57,12 +57,13 @@
 
 			<ui:repeat value="#{userMB.allMyFriends}" var="friend">
 				<h:panelGroup styleClass="titluFisiere">
-					<h:graphicImage value="#{friend.avatarLocation}" width="200"
-						height="200" />
-					<br />
 					<h:form>
 						<h:commandLink action="#{userMB.goToProfile(friend.id)}">
-						<h:outputText value="#{friend.firstName} #{friend.lastName}" />
+							<h:graphicImage value="#{friend.avatarLocation}" width="200"
+								height="200" />
+							<br />
+
+							<h:outputText value="#{friend.firstName} #{friend.lastName}" />
 						</h:commandLink>
 					</h:form>
 

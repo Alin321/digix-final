@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -53,7 +54,7 @@ public class User implements Serializable {
 	private String avatarLocation;
 
 	// bi-directional many-to-one association to UserFile
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
 	@JsonIgnore
 	private List<UserFile> userFiles;
 

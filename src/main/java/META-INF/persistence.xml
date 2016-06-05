@@ -9,6 +9,7 @@
 		<class>ro.digix.entities.User</class>
 		<class>ro.digix.entities.UserFriend</class>
 		<class>ro.digix.entities.UserLog</class>
+		<class>ro.digix.entities.Family</class>
 		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 	</persistence-unit>
