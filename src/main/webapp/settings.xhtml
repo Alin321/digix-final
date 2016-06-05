@@ -3,12 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
 	<title>Settings</title>
 	<link href="styles/afterLogIn.css" rel="stylesheet" type="text/css" />
+	<link href="styles/settings.css" rel="stylesheet" type="text/css" />
 	<link href="styles/footer.css" rel="stylesheet" type="text/css" />
 	<script src="//code.jquery.com/jquery-latest.js"></script>
 
@@ -40,9 +41,9 @@
 
 		<div id="navigare">
 		<ul>
-		<li><a href="yourFiles.xhtml">your files</a></li>
-		<li><a href="yourFriendsFiles.xhtml">your friends files</a></li>
-		<li><a href="yourListOfFriends.xhtml">your list of friends</a></li>
+		<li><a href="yourFiles.xhtml">my files</a></li>
+		<li><a href="yourFriendsFiles.xhtml">my friends files</a></li>
+		<li><a href="yourListOfFriends.xhtml">my list of friends</a></li>
 		<li><a href="#"> <b>settings</b></a></li>
 		<li><a href="index.html">log out</a></li>
 		</ul>
@@ -50,15 +51,15 @@
 	
 	</div>
 
-
+ 
 	<div class="continut">
 
-		<div id="Settings">
 		<div class="titluFisiere">Settings</div>
+		<div id="Settings" >
+		
 		Change your password: <br /><br />
 		Insert your old password:<br /><input type="password" name="password" placeholder=" " /> <br />
 		Insert your new password:<br /><input type="password" name="password" placeholder=" " /> <br />
-		Insert your new password again:<br /><input type="password" name="password" placeholder=" " /><br /><br />
 	
 		Delete your account:
 		<input type="button" value="Delete" />
