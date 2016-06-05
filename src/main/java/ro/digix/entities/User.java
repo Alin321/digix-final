@@ -18,14 +18,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 /**
  * The persistent class for the USERS database table.
  * 
  */
 @Entity
-@Table(name="USERS")
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@Table(name = "USERS")
+@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @XmlRootElement(name = "users")
 public class User implements Serializable {
@@ -35,33 +34,36 @@ public class User implements Serializable {
 	private long id;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="BIRTH_DATE")
+	@Column(name = "BIRTH_DATE")
 	private Date birthDate;
 
-	@Column(name="email")
+	@Column(name = "email")
 	private String email;
 
-	@Column(name="first_name")
+	@Column(name = "first_name")
 	private String firstName;
 
-	@Column(name="last_name")
+	@Column(name = "last_name")
 	private String lastName;
 
-	@Column(name="password")
+	@Column(name = "password")
 	private String password;
 
-	//bi-directional many-to-one association to UserFile
-	@OneToMany(mappedBy="user")
+	@Column(name = "avatar_location")
+	private String avatarLocation;
+
+	// bi-directional many-to-one association to UserFile
+	@OneToMany(mappedBy = "user")
 	@JsonIgnore
 	private List<UserFile> userFiles;
 
-	//bi-directional many-to-one association to UserFriend
-	@OneToMany(mappedBy="user")
+	// bi-directional many-to-one association to UserFriend
+	@OneToMany(mappedBy = "user")
 	@JsonIgnore
 	private List<UserFriend> userFriends;
 
-	//bi-directional many-to-one association to UserLog
-	@OneToMany(mappedBy="user")
+	// bi-directional many-to-one association to UserLog
+	@OneToMany(mappedBy = "user")
 	@JsonIgnore
 	private List<UserLog> userLogs;
 
@@ -110,6 +112,14 @@ public class User implements Serializable {
 
 	public String getPassword() {
 		return this.password;
+	}
+
+	public String getAvatarLocation() {
+		return avatarLocation;
+	}
+
+	public void setAvatarLocation(String avatarLocation) {
+		this.avatarLocation = avatarLocation;
 	}
 
 	public void setPassword(String password) {
