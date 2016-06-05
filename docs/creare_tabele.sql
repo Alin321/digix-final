@@ -58,7 +58,7 @@ create table familie (
   PRIMARY KEY(id)
 )
 /
-insert into users values(100,'sturza.razvan@yahoo.com','sturza','Razvan','Sturza',TO_DATE('07/01/1995', 'dd/mm/yyyy'),'upload/sturza.razvan@yahoo.com/poza2.JPG');
+insert into users values(100,'sturza.razvan@yahoo.com','sturza','Razvan','Sturza',TO_DATE('07/01/1995', 'dd/mm/yyyy'),'upload/sturza.razvan@yahoo.com/poza1.JPG');
 insert into users values(101,'stefan.david@yahoo.com','stefan','Stefan','David',TO_DATE('27/04/1995', 'dd/mm/yyyy'),'upload/stefan.david@yahoo.com/poza.jpg');
 insert into users values(102,'alin.cuzuc@yahoo.com','alincuzuc','Alin','Cuzuc',TO_DATE('27/11/1995', 'dd/mm/yyyy'),'upload/alin.cuzuc@yahoo.com/poza.jpg');
 insert into users values(103,'andreea.sacara@yahoo.com','andreea','Andreea','Sacara-Munteanu',TO_DATE('26/11/1995', 'dd/mm/yyyy'),'upload/andreea.sacara@yahoo.com/poza.jpg');
