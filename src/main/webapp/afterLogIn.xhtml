@@ -3,7 +3,8 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
 	<title>Home</title>
@@ -61,29 +62,37 @@
 			</div>
 			<div id="OnDigix">
 				<ui:repeat value="#{userMB.allUserFiles}" var="file">
-					
+
 					<div class="fisiereAfisate">
-						<embed src="#{file.location}" width="425"
-							height="330" allowfullscreen="true" autoplay="0" autostart="false"/>
-						<!-- 
-						<video id="myVideo" width="100%" controls="controls"
-							rendered="#{file.type == 'video'}"> <h:outputText
-							value="&lt;source src=&quot;#{file.location}&quot; type=&quot;video/mp4&quot; /&qt;"
-							escape="false" rendered="#{file.type == 'video'}" /> </video>
-							
-						 -->
-							 
+							<!--  display video -->
+							<h:panelGroup rendered="#{file.type == 'video'}">
+								<video id="myVideo" width="425" height="330" controls="controls"
+									rendered="#{file.type == 'video'}"> <h:outputText
+									value="&lt;source src=&quot;#{file.location}&quot; type=&quot;video/mp4&quot; /&gt;"
+									escape="false" rendered="#{file.type == 'video'}" /> <h:outputText
+									value="&lt;source src=&quot;#{file.location}&quot; type=&quot;video/mpeg&quot; /&gt;"
+									escape="false" rendered="#{file.type == 'video'}" /> </video>
+							</h:panelGroup>
+
+							<!--  display image -->
+							<h:panelGroup rendered="#{file.type == 'poza'}">
+								<h:graphicImage value="#{file.location}" width="425" height="330" />
+							</h:panelGroup>
+
+							<!--  display something else -->
+							<h:panelGroup rendered="#{file.type == 'act'}">
+								<embed src="#{file.location}" width="425" height="330" />
+							</h:panelGroup> 
+								
 						<br />
-					
-						<ui:repeat  value="#{file.fileTags}" var="tag">
+						<ui:repeat value="#{file.fileTags}" var="tag">
 								#{tag.tag}
 						</ui:repeat>
-							<br />
-						<h:selectBooleanCheckbox /> Share this file with your friends.
 						<br />
-						<br />
-					</div>	
-					
+						<h:selectBooleanCheckbox />
+						Share this file with your friends. <br /> <br />
+					</div>
+
 				</ui:repeat>
 			</div>
 

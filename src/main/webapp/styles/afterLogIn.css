@@ -12,7 +12,9 @@ a:hover{color: #b2c2bf;}
 li { list-style-type: none; }
 li:hover {color: #b2c2bf; cursor: pointer;}
 
-
+.hide {
+	display : none;
+}
 /*---------------------------------------------------------------HEADER--------------------------------------------------------------*/
 #logo {
 	display: inline;

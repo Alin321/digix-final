@@ -82,7 +82,7 @@ public class RegisterRestService {
 		userService.create(u);
 		java.net.URI location = null;
 		try {
-			location = new java.net.URI("../log-in.html");
+			location = new java.net.URI("../log-in.xhtml");
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
