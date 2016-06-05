@@ -16,6 +16,7 @@ create table users (id NUMBER(10) NOT NULL,
                     first_name VARCHAR2(50),
                     last_name VARCHAR2(50),
                     birth_date DATE,
+                    avatar_location VARCHAR2(50),
                     PRIMARY KEY (id))
 /
 
@@ -57,16 +58,16 @@ create table familie (
   PRIMARY KEY(id)
 )
 /
-insert into users values(100,'sturza.razvan@yahoo.com','sturza','Razvan','Sturza',TO_DATE('07/01/1995', 'dd/mm/yyyy'));
-insert into users values(101,'stefan.david@yahoo.com','stefan','Stefan','David',TO_DATE('27/04/1995', 'dd/mm/yyyy'));
-insert into users values(102,'alin.cuzuc@yahoo.com','alincuzuc','Alin','Cuzuc',TO_DATE('27/11/1995', 'dd/mm/yyyy'));
-insert into users values(103,'andreea.sacara@yahoo.com','andreea','Andreea','Sacara-Munteanu',TO_DATE('26/11/1995', 'dd/mm/yyyy'));
-insert into users values(104,'sturza.nuta@yahoo.com','sturza','Nuta','Sturza',TO_DATE('01/05/1971', 'dd/mm/yyyy'));
-insert into users values(105,'sturza.gelu@yahoo.com','sturza','Gelu','Sturza',TO_DATE('24/03/1973', 'dd/mm/yyyy'));
-insert into users values(106,'sturza.gabi@yahoo.com','sturza','Gabi','Sturza',TO_DATE('11/11/1993', 'dd/mm/yyyy'));
-insert into users values(107,'sturza.toader@yahoo.com','sturza','Toader','Sturza',TO_DATE('04/11/1950', 'dd/mm/yyyy'));
-insert into users values(108,'barba.ghita@yahoo.com','sturza','Ghita','Barba',TO_DATE('04/01/1933', 'dd/mm/yyyy'));
-insert into users values(109,'sturza.maria@yahoo.com','sturza','Maria','Sturza',TO_DATE('04/06/1943', 'dd/mm/yyyy'));
+insert into users values(100,'sturza.razvan@yahoo.com','sturza','Razvan','Sturza',TO_DATE('07/01/1995', 'dd/mm/yyyy'),'upload/sturza.razvan@yahoo.com/poza2.JPG');
+insert into users values(101,'stefan.david@yahoo.com','stefan','Stefan','David',TO_DATE('27/04/1995', 'dd/mm/yyyy'),'upload/stefan.david@yahoo.com/poza.jpg');
+insert into users values(102,'alin.cuzuc@yahoo.com','alincuzuc','Alin','Cuzuc',TO_DATE('27/11/1995', 'dd/mm/yyyy'),'upload/alin.cuzuc@yahoo.com/poza.jpg');
+insert into users values(103,'andreea.sacara@yahoo.com','andreea','Andreea','Sacara-Munteanu',TO_DATE('26/11/1995', 'dd/mm/yyyy'),'upload/andreea.sacara@yahoo.com/poza.jpg');
+insert into users values(104,'sturza.nuta@yahoo.com','sturza','Nuta','Sturza',TO_DATE('01/05/1971', 'dd/mm/yyyy'),'upload/sturza.nuta@yahoo.com/poza.jpg');
+insert into users values(105,'sturza.gelu@yahoo.com','sturza','Gelu','Sturza',TO_DATE('24/03/1973', 'dd/mm/yyyy'),'upload/sturza.gelu@yahoo.com/poza.jpg');
+insert into users values(106,'sturza.gabi@yahoo.com','sturza','Gabi','Sturza',TO_DATE('11/11/1993', 'dd/mm/yyyy'),'upload/sturza.gabi@yahoo.com/poza.jpg');
+insert into users values(107,'sturza.toader@yahoo.com','sturza','Toader','Sturza',TO_DATE('04/11/1950', 'dd/mm/yyyy'),'upload/sturza.toader@yahoo.com/poza.jpg');
+insert into users values(108,'barba.ghita@yahoo.com','sturza','Ghita','Barba',TO_DATE('04/01/1933', 'dd/mm/yyyy'),'upload/barba.ghita@yahoo.com/poza.jpg');
+insert into users values(109,'sturza.maria@yahoo.com','sturza','Maria','Sturza',TO_DATE('04/06/1943', 'dd/mm/yyyy'),'upload/sturza.maria@yahoo.com/poza.jpg');
 
 
 insert into user_logs values(1,100,'add_file',sysdate);
