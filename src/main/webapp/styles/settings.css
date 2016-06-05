@@ -1,0 +1,28 @@
+.titluFisiere{
+	font-variant: small-caps;
+}
+
+#Settings{
+	float: left;
+	text-align: left;
+
+}
+
+input[type=submit]{
+	border: 0px;
+	background: none;
+	font-size: 18px;
+	font-style: 	
+}
+
+input[type=button]{
+
+}
+
+#userProfileImg{
+	margin-top: 20px;
+	border-radius: 100px;
+	height: 180px;
+	width: 180px;
+	border: 1px solid #b2c2bf;
+}
