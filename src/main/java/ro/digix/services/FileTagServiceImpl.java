@@ -36,4 +36,9 @@ public class FileTagServiceImpl implements FileTagService {
 
 	}
 
+	@Override
+	public long getNextId() {
+		return fileTagDAO.getNextId();
+	}
+
 }

@@ -11,4 +11,6 @@ public interface FileTagService {
 	public void delete(FileTag tag);
 	
 	public void update(FileTag tag);
+
+	public long getNextId();
 }

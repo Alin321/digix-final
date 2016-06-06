@@ -25,9 +25,6 @@ public class FileTag implements Serializable {
 	@Column(name="tag")
 	private String tag;
 
-	@Column(name="type")
-	private String type;
-
 	//bi-directional many-to-one association to UserFile
 	@ManyToOne
 	@JoinColumn(name="FILE_ID")
@@ -50,14 +47,6 @@ public class FileTag implements Serializable {
 
 	public void setTag(String tag) {
 		this.tag = tag;
-	}
-
-	public String getType() {
-		return this.type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public UserFile getUserFile() {

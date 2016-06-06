@@ -1,6 +1,7 @@
 package ro.digix.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -58,6 +59,7 @@ public class UserFile implements Serializable {
 	private User user;
 
 	public UserFile() {
+		fileTags = new ArrayList<>();
 	}
 
 	public long getId() {
@@ -109,7 +111,7 @@ public class UserFile implements Serializable {
 	}
 
 	public FileTag addFileTag(FileTag fileTag) {
-		getFileTags().add(fileTag);
+		fileTags.add(fileTag);
 		fileTag.setUserFile(this);
 
 		return fileTag;

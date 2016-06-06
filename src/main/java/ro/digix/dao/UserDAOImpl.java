@@ -169,6 +169,11 @@ public class UserDAOImpl implements UserDAO {
 		Collections.sort(listToReturn, new Comparator<UserFile>() {
 			@Override
 			public int compare(UserFile o1, UserFile o2) {
+				if(o2.getDateAdded().compareTo(o1.getDateAdded()) == 0) {
+					if(o2.getId() > o1.getId()) {
+						return 1;
+					} else return -1;
+				}
 				return o2.getDateAdded().compareTo(o1.getDateAdded());
 			}
 		});
@@ -333,6 +338,11 @@ public class UserDAOImpl implements UserDAO {
 		Collections.sort(listToReturn, new Comparator<UserFile>() {
 			@Override
 			public int compare(UserFile o1, UserFile o2) {
+				if(o2.getDateAdded().compareTo(o1.getDateAdded()) == 0) {
+					if(o2.getId() > o1.getId()) {
+						return 1;
+					} else return -1;
+				}
 				return o2.getDateAdded().compareTo(o1.getDateAdded());
 			}
 		});

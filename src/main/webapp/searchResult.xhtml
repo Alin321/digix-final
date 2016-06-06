@@ -87,7 +87,7 @@
 							</h:panelGroup>
 
 							<!--  display something else -->
-							<h:panelGroup rendered="#{file.type == 'act'}">
+							<h:panelGroup rendered="#{!(file.type == 'video') and !(file.type == 'poza')}">
 								<embed src="#{file.location}" width="425" height="330" />
 							</h:panelGroup>
 
