@@ -114,7 +114,7 @@
 							#{userMB.getUserById(file.user.id).firstName} on:
 							#{file.dateAdded} <br /> <br /> 
 							
-							<h:commandButton value="#{myFilesMB.isFilePublic(file.id) ? 'Share' : 'Non-Share'}">
+							<h:commandButton value="#{myFilesMB.isFilePublic(file.id) ? 'Non-Share' : 'Share'}">
 								<f:ajax listener="#{myFilesMB.changeAccessType(file.id)}" execute="@this" render="imaginiInYourFiles" event="click" />
 							</h:commandButton>
 							<br />

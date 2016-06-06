@@ -60,16 +60,21 @@
 
 		<div class="titluFisiere"><p>Settings</p></div>
 		<div id="Settings"  style="width: 100%;" >
-		
+		<h:form>
+		<h:messages style="color:red;margin:8px;" />
 		Change your password: <br /><br />
-		Insert your old password:<br /><input type="password" name="password" placeholder=" " /> <br />
-		Insert your new password:<br /><input type="password" name="password" placeholder=" " /> <br />
+		<h:message for="oldPass" id="oldPassword"></h:message>
+		Insert your old password:<br /><h:inputSecret id="oldPass" value="#{settingsMB.oldPassword}" /> <br />
+		Insert your new password:<br /><h:inputSecret id="newPass" value="#{settingsMB.newPassword}" /> <br />
 	
-		Delete your account:
-		<input type="button" value="Delete" />
+		<h:commandButton action="#{settingsMB.changePassword}" value="SUBMIT" />
+		</h:form>
 		<br /><br /><br />
 		<div class="butonOk" style="width:100%; text-align:right; padding-top:20px; padding-bottom:20px; margin-top:150px; ">
-		<input type="submit" name="SUBMIT" value="SUBMIT" />
+		<h:form>
+		Delete your account:
+		<h:commandButton value="Delete" action="#{settingsMB.deleteAccount}"/>
+		</h:form>
 		</div>
 	</div>	
 
