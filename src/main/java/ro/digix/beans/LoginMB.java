@@ -32,7 +32,7 @@ public class LoginMB extends BaseMB {
 			return null;
 		}
 
-		if (userService.authenticate(email, password)) {
+		if (userService.authenticate(email, Crypter.encryptSHA256(password))) {
 			User u = userService.getUserByEmail(email);
 			userMB.setEmail(u.getEmail());
 			userMB.setBirthDate(u.getBirthDate());
