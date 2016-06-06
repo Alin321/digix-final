@@ -57,9 +57,8 @@
 				update="loginForm" action="#{loginMB.authenticate}" />
 				
 		</h:form>
-		<h:form>
-		
-			 <h:commandButton id="facebook" value = "Login with FB" type="submit" action="#{userMB.facebookLogin}" />
+		<h:form>		
+			 <h:commandButton id="facebook" value = "Log in with Facebook" type="submit" action="#{userMB.facebookLogin}" />
 			 <h:outputText value="#{userMB.userFromSession}"></h:outputText>
 		</h:form>
 	</section>
