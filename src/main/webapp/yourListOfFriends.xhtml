@@ -17,18 +17,18 @@
 
 	<header>
 
-		<div id="logo">
-			<a href="afterLogIn.xhtml"> DigiX </a>
-		</div>
+	<div id="logo">
+		<a href="afterLogIn.xhtml"> DigiX </a>
+	</div>
 
-		<h:panelGroup id="search" stlye=" border:1px solid black;">
-			<h:form style="width:1000px; display:inline; ">
-				<h:inputText id="search" type="text" value="#{searchMB.searchQuery}" styleClass="searchBox" p:placeholder="search on DigiX"/>
-				<h:commandButton value="" action="#{searchMB.search}" stlyeClass="butonIdiot"/>
-			</h:form>
-		</h:panelGroup>
-
-	</header>
+	<h:panelGroup id="search" stlye=" border:1px solid black;">
+		<h:form style="width:1000px; display:inline; ">
+			<h:inputText id="search" type="text" value="#{searchMB.searchQuery}"
+				styleClass="searchBox" p:placeholder="search on DigiX" />
+			<h:commandButton value="" action="#{searchMB.search}"
+				stlyeClass="butonIdiot" />
+		</h:form>
+	</h:panelGroup> </header>
 
 	<div id="corp">
 
@@ -58,19 +58,16 @@
 		<div class="continut">
 
 			<ui:repeat value="#{userMB.allMyFriends}" var="friend">
-				<h:panelGroup styleClass="titluFisiere">
-					<h:form>
-						<h:commandLink action="#{userMB.goToProfile(friend.id)}">
-							<h:graphicImage value="#{friend.avatarLocation}" width="200"
-								height="200" />
-							<br />
+				<h:form>
+					<h:commandLink action="#{userMB.goToProfile(friend.id)}">
+						<h:graphicImage value="#{friend.avatarLocation}" width="200"
+							height="200" />
+						<br />
 
-							<h:outputText value="#{friend.firstName} #{friend.lastName}" />
-						</h:commandLink>
-					</h:form>
-
-					<br />
-				</h:panelGroup>
+						<h:outputText value="#{friend.firstName} #{friend.lastName}" />
+					</h:commandLink>
+				</h:form>
+				<br />
 			</ui:repeat>
 
 		</div>
