@@ -98,6 +98,11 @@
 							<h:panelGroup rendered="#{file.type == 'poza'}">
 								<h:graphicImage value="#{file.location}" width="425"
 									height="330" />
+									<br />
+								<h:commandButton value="Set this picture as avatar!">
+									<f:ajax listener="#{settingsMB.changeAvatar(file.id)}"
+										execute="@this" event="click" render="@form"></f:ajax>
+								</h:commandButton>
 							</h:panelGroup>
 
 							<!--  display something else -->
@@ -112,13 +117,13 @@
 						</ui:repeat>
 							<br /> File added by
 							#{userMB.getUserById(file.user.id).firstName} on:
-							#{file.dateAdded} <br /> <br /> 
-							
-							<h:commandButton value="#{myFilesMB.isFilePublic(file.id) ? 'Non-Share' : 'Share'}">
-								<f:ajax listener="#{myFilesMB.changeAccessType(file.id)}" execute="@this" render="imaginiInYourFiles" event="click" />
+							#{file.dateAdded} <br /> <br /> <br />
+							<h:commandButton
+								value="#{myFilesMB.isFilePublic(file.id) ? 'Non-Share' : 'Share'}">
+								<f:ajax listener="#{myFilesMB.changeAccessType(file.id)}"
+									execute="@this" render="imaginiInYourFiles" event="click" />
 							</h:commandButton>
-							<br />
-							<br />
+							<br /> <br />
 						</div>
 
 					</ui:repeat>
