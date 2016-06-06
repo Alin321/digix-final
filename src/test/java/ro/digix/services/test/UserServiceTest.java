@@ -24,25 +24,25 @@ public class UserServiceTest {
 	public void userServiceCreateTest() {
 		//Creare user nou
 		User user = new User();
-		user.setId(106L);
-		user.setEmail("alincuzuc@yahoo.com");
+		user.setId(2000L);
+		user.setEmail("alincuzuccc@yahoo.com");
 		user.setFirstName("Alin");
 		
 		//Inserare user in baza de date si verificare 
 		userService.create(user);		
 		User found = new User();		
-		found = userService.getUserById(106L);		
+		found = userService.getUserById(2000L);		
 		assertNotNull(found);
 		
 		//Update nume user si verificare
 		user.setLastName("TEST");
 		userService.update(user);		
-		found = userService.getUserById(106L);
+		found = userService.getUserById(2000L);
 		assertEquals(found.getLastName(),"TEST");
 		
 		//Delete user si verificare
 		userService.delete(user);
-		found = userService.getUserById(106L);
+		found = userService.getUserById(2000L);
 		assertNull(found);
 		
 	}
