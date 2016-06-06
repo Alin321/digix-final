@@ -18,4 +18,6 @@ public interface UserFileService {
 
 	public long getNewId();
 
+	public boolean isFilePublic(long id);
+
 }

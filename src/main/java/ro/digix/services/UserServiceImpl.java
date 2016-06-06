@@ -92,5 +92,4 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getAllFriendFilesForFriendPage(id);
 	}
 
-
 }

@@ -71,4 +71,13 @@ public class UserFileDAOImpl implements UserFileDAO {
 		long maxId = (long) criteria.uniqueResult();
 		return maxId + 1;
 	}
+
+	@Override
+	public boolean isFilePublic(long id) {
+		UserFile uf = getUserFileById(id);
+		if(uf.getAccessType().equalsIgnoreCase("p")){
+			return true;
+		}
+		return false;
+	}
 }

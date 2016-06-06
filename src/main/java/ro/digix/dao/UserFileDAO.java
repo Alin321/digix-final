@@ -18,4 +18,6 @@ public interface UserFileDAO extends AbstractDAO {
 	public List<String> getAllCategories();
 
 	public long getNewId();
+	
+	public boolean isFilePublic(long id);
 }

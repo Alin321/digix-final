@@ -61,7 +61,10 @@ public class UserDAOImpl implements UserDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getAll() {
-		return (List<User>) getCurrentSession().createCriteria(User.class).list();
+		String hql = "FROM User U";
+		Query query = getCurrentSession().createQuery(hql);
+		List<User> results = (List<User>) query.list();
+		return results;
 	}
 
 	@Override

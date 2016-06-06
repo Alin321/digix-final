@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
 	<title>My Files</title>
@@ -77,7 +78,52 @@
 				<a class="album" href="upload.xhtml">
 					<div class="copertaAlbum">+ Update</div>
 				</a>
-				<div id="imaginiInYourFiles"></div>
+
+				<div id="imaginiInYourFiles">
+
+					<ui:repeat value="#{myFilesMB.allMyFiles}" var="file">
+
+						<div class="fisiereAfisate">
+							<!--  display video -->
+							<h:panelGroup rendered="#{file.type == 'video'}">
+								<video id="myVideo" width="425" height="330" controls="controls"
+									rendered="#{file.type == 'video'}"> <h:outputText
+									value="&lt;source src=&quot;#{file.location}&quot; type=&quot;video/mp4&quot; /&gt;"
+									escape="false" rendered="#{file.type == 'video'}" /> <h:outputText
+									value="&lt;source src=&quot;#{file.location}&quot; type=&quot;video/mpeg&quot; /&gt;"
+									escape="false" rendered="#{file.type == 'video'}" /> </video>
+							</h:panelGroup>
+
+							<!--  display image -->
+							<h:panelGroup rendered="#{file.type == 'poza'}">
+								<h:graphicImage value="#{file.location}" width="425"
+									height="330" />
+							</h:panelGroup>
+
+							<!--  display something else -->
+							<h:panelGroup
+								rendered="#{!(file.type == 'video') and !(file.type == 'poza')}">
+								<embed src="#{file.location}" width="425" height="330" />
+							</h:panelGroup>
+
+							<br />
+							<ui:repeat value="#{file.fileTags}" var="tag">
+								#{tag.tag}
+						</ui:repeat>
+							<br /> File added by
+							#{userMB.getUserById(file.user.id).firstName} on:
+							#{file.dateAdded} <br /> <br /> 
+							
+							<h:commandButton value="#{myFilesMB.isFilePublic(file.id) ? 'Share' : 'Non-Share'}">
+								<f:ajax listener="#{myFilesMB.changeAccessType(file.id)}" execute="@this" render="imaginiInYourFiles" event="click" />
+							</h:commandButton>
+							<br />
+							<br />
+						</div>
+
+					</ui:repeat>
+
+				</div>
 			</div>
 
 		</div>

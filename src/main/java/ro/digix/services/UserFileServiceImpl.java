@@ -48,4 +48,9 @@ public class UserFileServiceImpl implements UserFileService {
 		return userFileDao.getNewId();
 	}
 
+	@Override
+	public boolean isFilePublic(long id) {
+		return userFileDao.isFilePublic(id);
+	}
+
 }
