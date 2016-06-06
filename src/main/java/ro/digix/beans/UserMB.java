@@ -135,6 +135,10 @@ public class UserMB {
 		return userService.getAllFriendFiles(id);
 	}
 
+	public List<UserFile> getAllUserFilesForFriendPage(long id) {
+		return userService.getAllFriendFilesForFriendPage(id);
+	}
+	
 	public User getUserById(long id) {
 		return userService.getUserById(id);
 	}

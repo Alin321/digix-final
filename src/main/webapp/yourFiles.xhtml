@@ -18,25 +18,25 @@
 
 	<header>
 
-		<div id="logo">
-			<a href="afterLogIn.xhtml"> DigiX </a>
-		</div>
+	<div id="logo">
+		<a href="afterLogIn.xhtml"> DigiX </a>
+	</div>
 
-		<h:panelGroup id="search" stlye=" border:1px solid black;">
-			<h:form style="width:1000px; display:inline; ">
-				<h:inputText id="search" type="text" value="#{searchMB.searchQuery}" styleClass="searchBox" p:placeholder="search on DigiX"/>
-				<h:commandButton value="" action="#{searchMB.search}" stlyeClass="butonIdiot"/>
-			</h:form>
-		</h:panelGroup>
-
-	</header>
+	<h:panelGroup id="search" stlye=" border:1px solid black;">
+		<h:form style="width:1000px; display:inline; ">
+			<h:inputText id="search" type="text" value="#{searchMB.searchQuery}"
+				styleClass="searchBox" p:placeholder="search on DigiX" />
+			<h:commandButton value="" action="#{searchMB.search}"
+				stlyeClass="butonIdiot" />
+		</h:form>
+	</h:panelGroup> </header>
 
 	<div id="corp">
 
 		<div id="meniu">
 
 			<div id="identitate">
- 
+
 				<h:graphicImage id="imagineAvatar" value="#{userMB.avatar}"
 					onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
 					alt="" />
@@ -68,17 +68,15 @@
 				<ui:repeat value="#{userMB.allCategories}" var="item">
 					<h:form>
 						<h:commandLink action="#{userMB.goToCategory(item)}">
-							<h:panelGroup styleClass="copertaAlbum">
+							<div class="copertaAlbum">
 								<h:outputText value="#{item}" />
-							</h:panelGroup>
+							</div>
 						</h:commandLink>
 					</h:form>
 				</ui:repeat>
-
 				<a class="album" href="upload.xhtml">
 					<div class="copertaAlbum">+ Update</div>
 				</a>
-
 				<div id="imaginiInYourFiles"></div>
 			</div>
 
