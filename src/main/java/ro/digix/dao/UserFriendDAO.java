@@ -12,4 +12,6 @@ public interface UserFriendDAO extends AbstractDAO {
 	public void delete(UserFriend user);
 	
 	public void update(UserFriend user);
+	
+	public long getNextId();
 }

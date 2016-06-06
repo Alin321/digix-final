@@ -11,4 +11,6 @@ public interface UserFriendService {
 	public void delete(UserFriend user);
 	
 	public void update(UserFriend user);
+
+	public long getNextId();
 }

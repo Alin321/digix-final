@@ -390,4 +390,18 @@ public class UserDAOImpl implements UserDAO {
 		});
 		return results;
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean areFriends(long id, long id2) {
+		String hql = "From UserFriend uf where (uf.user.id=:id1 and uf.friendId=:id2) or (uf.user.id=:id3 and uf.friendId=:id4)";
+		Query query = getCurrentSession().createQuery(hql);
+		query.setParameter("id1", id);
+		query.setParameter("id2", id2);
+		query.setParameter("id3", id2);
+		query.setParameter("id4", id);
+		List<User> results =(List<User>) query.list();
+		
+		return !results.isEmpty();
+	}
 }

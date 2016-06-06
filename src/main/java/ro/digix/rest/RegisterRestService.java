@@ -22,6 +22,7 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ro.digix.beans.Crypter;
 import ro.digix.constants.ApplicationConstants;
 import ro.digix.entities.User;
 import ro.digix.services.UserService;
@@ -76,7 +77,7 @@ public class RegisterRestService {
 		u.setLastName(lastName);
 		u.setFirstName(firstName);
 		u.setEmail(email);
-		u.setPassword(password);
+		u.setPassword(Crypter.encryptSHA256(password));
 		u.setId(userService.getNextId());
 		u.setBirthDate(date);
 		userService.create(u);

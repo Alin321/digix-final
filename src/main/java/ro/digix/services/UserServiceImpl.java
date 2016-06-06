@@ -92,4 +92,9 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getAllFriendFilesForFriendPage(id);
 	}
 
+	@Override
+	public boolean areFriends(long id, long id2) {
+		return userDAO.areFriends(id, id2);
+	}
+
 }

@@ -1,11 +1,14 @@
 package ro.digix.dao;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import ro.digix.entities.User;
 import ro.digix.entities.UserFriend;
 
 @Repository
@@ -43,6 +46,13 @@ public class UserFriendDAOImpl implements UserFriendDAO {
 		getCurrentSession().update(user);
 		getCurrentSession().flush();
 
+	}
+
+	@Override
+	public long getNextId() {
+		Criteria criteria = getCurrentSession().createCriteria(UserFriend.class).setProjection(Projections.max("id"));
+		long maxId = (long) criteria.uniqueResult();
+		return maxId + 1;
 	}
 
 }

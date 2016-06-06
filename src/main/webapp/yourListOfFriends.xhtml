@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
 	<title>My list of friends</title>
@@ -48,7 +49,7 @@
 					<li><a href="yourFriendsFiles.xhtml">my friends files</a></li>
 					<li><a href="#"><b>my list of friends</b></a></li>
 					<li><a href="settings.xhtml"> settings</a></li>
-					<li><a href="index.html">log out</a></li>
+					<li><h:form><h:commandLink value="Log Out" action="#{logoutMB.logout}" /></h:form></li>
 				</ul>
 			</div>
 
@@ -57,19 +58,24 @@
 
 		<div class="continut">
 
-			<ui:repeat value="#{userMB.allMyFriends}" var="friend">
+			<ui:repeat value="#{friendsMB.allUsers}" var="friend">
 				<h:form>
 					<h:commandLink action="#{userMB.goToProfile(friend.id)}">
-						<h:graphicImage value="#{friend.avatarLocation}" width="200"
-							height="200" />
-						<br />
-
+					<h:graphicImage value="#{friend.avatarLocation}" width="200"
+						height="200" />
+					<br />
+					
 						<h:outputText value="#{friend.firstName} #{friend.lastName}" />
 					</h:commandLink>
+					<h:commandButton value="Add to friend list!"
+						rendered="#{!friendsMB.areFriends(friend.id)}">&nbsp;
+						<f:ajax listener="#{friendsMB.addToFriendList(friend.id)}"
+							execute="@this" event="click" render="@form"></f:ajax>
+					</h:commandButton>
+
 				</h:form>
 				<br />
 			</ui:repeat>
-
 		</div>
 
 	</div>

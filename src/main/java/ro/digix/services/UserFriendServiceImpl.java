@@ -35,4 +35,9 @@ public class UserFriendServiceImpl implements UserFriendService {
 
 	}
 
+	@Override
+	public long getNextId() {
+		return userFriendDAO.getNextId();
+	}
+
 }
