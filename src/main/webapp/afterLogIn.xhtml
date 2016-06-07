@@ -27,7 +27,7 @@
 	<h:panelGroup id="search" stlye=" border:1px solid black;">
 		<h:form style="width:1000px; display:inline; ">
 			<h:inputText id="search" type="text" value="#{searchMB.searchQuery}" styleClass="searchBox" p:placeholder="search on DigiX"/>
-			<h:commandButton value="" action="#{searchMB.search}" stlyeClass="butonIdiot"/>
+			<h:commandButton id="butonInvizibil" value="" action="#{searchMB.search}" stlyeClass="butonIdiot"/>
 		</h:form>
 	</h:panelGroup>
 
@@ -52,7 +52,7 @@
 					<li><a href="yourFriendsFiles.xhtml">my friends files</a></li>
 					<li><a href="yourListOfFriends.xhtml">my list of friends</a></li>
 					<li><a href="settings.xhtml"> settings</a></li>
-					<li><h:form><h:commandLink value="Log Out" action="#{logoutMB.logout}" /></h:form></li>
+					<li><a href="index.html">log out</a></li>
 				</ul>
 			</div>
 
@@ -102,14 +102,6 @@
 		</div>
 
 	</div>
-	<footer>
-	<p>
-		&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan
-		David <br /> All rights reserved<br /> DigiX 2016
-	</p>
-	</footer>
-
-
 
 
 

@@ -5,59 +5,126 @@
 	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-<title>Upload new file</title>
+<title>Upload </title>
 <link href="styles/upload.css" rel="stylesheet" type="text/css" />
+<link href="styles/afterLogIn.css" rel="stylesheet" type="text/css" />
+<link href="styles/settings.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
 
-	<h:form enctype="multipart/form-data">
-		<h:inputFile required="true" value="#{uploadMB.file1}" />
-		<br />
 
-		<h:panelGroup id="selectOne"
-			styleClass="#{(uploadMB.haveCategoryInList)?'hide':''}">
-			<h:outputLabel for="listaCategorii"  value="Selectati o categorie"/>
-			<h:selectOneMenu value="#{uploadMB.fileType}" id="listaCategorii">
-				<f:selectItems value="#{userMB.allCategories}" var="item"
-					itemValue="#{item}" itemLabel="#{item}" />
-			</h:selectOneMenu>
-		</h:panelGroup>
+<!-- HEADER -->
 
-		<h:panelGroup id="inputText"
-			styleClass="#{(uploadMB.haveCategoryInList)?'':'hide'}">
-			<h:outputLabel for="newType" value="Introduceti noua categorie" />
-			<h:inputText id="newType" value="#{uploadMB.newFileType}" />
-		</h:panelGroup>
+	<header>
 
-		<br />
-		<h:selectBooleanCheckbox value="#{uploadMB.haveCategoryInList}"
-			id="box">
-			<f:ajax render="inputText selectOne lblBox lblBox2" event="change"></f:ajax>
-		</h:selectBooleanCheckbox>
-		
-		<h:outputLabel id="lblBox" value="Vreau sa creez o noua categorie!"
-			for="box" styleClass="#{(uploadMB.haveCategoryInList)?'hide':''}"/>
-			
-		<h:outputLabel id="lblBox2" value="Afiseaza lista inapoi!"
-			for="box" styleClass="#{(uploadMB.haveCategoryInList)?'':'hide'}"/>
-			
-		
+	<div id="logo">
+		<a href="afterLogIn.xhtml"> DigiX </a>
+	</div>
 
-		<br /> <br />
-		
-		<h:outputLabel for="tagList" value="Lista de taguri separate de spatii"/>
-		<h:inputText value="#{uploadMB.tags}" id="tagList" />
+	<h:panelGroup id="search" stlye=" border:1px solid black;">
+		<h:form style="width:1000px; display:inline; ">
+			<h:inputText id="search" type="text" value="#{searchMB.searchQuery}" styleClass="searchBox" p:placeholder="search on DigiX"/>
+			<h:commandButton value="" action="#{searchMB.search}" stlyeClass="butonIdiot" style="padding:0;"/>
+		</h:form>
+	</h:panelGroup>
 
-		<br /> <br />
-		<h:outputLabel for="accesType" value="Selectati vizibilitatea fisierului!" />
-		<h:selectOneMenu value="#{uploadMB.accessType}" id="accesType">
-			<f:selectItem itemValue="P" itemLabel="Public" />
-			<f:selectItem itemValue="S" itemLabel="Secret" />
-		</h:selectOneMenu>
-		
-		<br />
-		<h:commandButton value="Submit" action="#{uploadMB.upload}" />
-	</h:form>
+
+	</header>
+
+
+<!-- BODY-->
+
+
+<div id="corp">
+		<div id="meniu">
+
+			<div id="identitate">
+
+				<h:graphicImage id="imagineAvatar" value="#{userMB.avatar}"
+					onError="this.onerror=null;this.src='toate-imaginile/product_image_not_available.gif';"
+					alt="" />
+				<p>#{userMB.firstName} #{userMB.lastName}</p>
+			</div>
+
+			<div id="navigare">
+				<ul>
+					<li><a href="yourFiles.xhtml">my files</a></li>
+					<li><a href="yourFriendsFiles.xhtml">my friends files</a></li>
+					<li><a href="yourListOfFriends.xhtml">my list of friends</a></li>
+					<li><a href="settings.xhtml"> settings</a></li>
+					<li><a href="index.html">log out</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div id="updateContainer">
+
+			<div class="titluFisiere">
+				<p>Upload something</p>
+			</div>
+
+
+
+			<h:form enctype="multipart/form-data">
+				<h:inputFile required="true" value="#{uploadMB.file1}" />
+				<br /><br />
+
+				<h:panelGroup id="selectOne"
+					styleClass="#{(uploadMB.haveCategoryInList)?'hide':''}">
+					<h:outputLabel class="text" for="listaCategorii"  value="Selectati o categorie"/><br />
+					<h:selectOneMenu class="buton" value="#{uploadMB.fileType}" id="listaCategorii">
+						<f:selectItems value="#{userMB.allCategories}" var="item"
+							itemValue="#{item}" itemLabel="#{item}" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+
+				<h:panelGroup class="text" id="inputText"
+					styleClass="#{(uploadMB.haveCategoryInList)?'':'hide'}">
+					<h:outputLabel class="text" for="newType" value="Introduceti noua categorie" /><br />
+					<h:inputText class="buton" id="newType" value="#{uploadMB.newFileType}" />
+				</h:panelGroup>
+
+				<br />
+				
+				
+				<h:outputLabel class="text" id="lblBox" value="Doriti sa creati o alta categorie?" style="font-variant:normal; font-size:13px; font-family:Georgia;"
+					for="box" styleClass="#{(uploadMB.haveCategoryInList)?'hide':''}"/>
+
+					
+				<h:outputLabel class="text" id="lblBox2" value="Afiseaza lista categoriilor existente:" style="font-variant:normal; font-size:13px; font-family:Georgia;"
+					for="box" styleClass="#{(uploadMB.haveCategoryInList)?'':'hide'}"/>
+				
+				<h:selectBooleanCheckbox class="CheckBox" value="#{uploadMB.haveCategoryInList}" style="padding:2px; margin-left: 5px; border:1px solid #b2c2bf; outline: none; "
+					id="box">
+					<f:ajax render="inputText selectOne lblBox lblBox2" event="change"></f:ajax>
+				</h:selectBooleanCheckbox>
+				
+
+				<br /> <br />
+				
+				<h:outputLabel class="text" for="tagList" value="Introduceti lista tagurilor:"/><br />
+				<h:inputText class="buton" value="#{uploadMB.tags}" id="tagList" />
+
+				<br /> <br />
+				<h:outputLabel class="text" for="accesType" value="Selectati vizibilitatea fisierului:" /><br />
+				<h:selectOneMenu class="buton" value="#{uploadMB.accessType}" id="accesType">
+					<f:selectItem itemValue="P" itemLabel="Public" />
+					<f:selectItem itemValue="S" itemLabel="Secret" />
+				</h:selectOneMenu>
+				
+				<br />
+				<div class="pentruSubmit"> <h:commandButton class="butonSubmit" value="SUBMIT" action="#{uploadMB.upload}" style="font-size:13px; border:1px solid #b2c2bf; padding:5px; outline: none;" /></div>
+			</h:form>
+
+
+
+		</div>
+
+</div>
+
+
+
 </h:body>
 </html>
 

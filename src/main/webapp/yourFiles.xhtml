@@ -28,7 +28,7 @@
 			<h:inputText id="search" type="text" value="#{searchMB.searchQuery}"
 				styleClass="searchBox" p:placeholder="search on DigiX" />
 			<h:commandButton value="" action="#{searchMB.search}"
-				stlyeClass="butonIdiot" />
+				stlyeClass="butonIdiot" style="padding:0;"/>
 		</h:form>
 	</h:panelGroup> </header>
 
@@ -63,28 +63,22 @@
 				<p>My files</p>
 			</div>
 
-
-			<div id="YourFiles">
-
-				<ui:repeat value="#{userMB.allCategories}" var="item">
-					<h:form>
-						<h:commandLink action="#{userMB.goToCategory(item)}">
-							<div class="copertaAlbum">
-								<h:outputText value="#{item}" />
-							</div>
-						</h:commandLink>
-					</h:form>
-				</ui:repeat>
-				<a class="album" href="upload.xhtml">
-					<div class="copertaAlbum">+ Update</div>
-				</a>
+			<div class="upload" style="width:100%; margin-bottom:150px;">
+			<a class="album" href="upload.xhtml"
+			style="width:70px; height:30px;">
+				<div class="copertaAlbum">+ Update</div>
+			</a>
+			</div>
 
 				<div id="imaginiInYourFiles">
+
 
 					<ui:repeat value="#{myFilesMB.allMyFiles}" var="file">
 
 						<div class="fisiereAfisate">
 							<!--  display video -->
+
+							<div class="fisier">
 							<h:panelGroup rendered="#{file.type == 'video'}">
 								<video id="myVideo" width="425" height="330" controls="controls"
 									rendered="#{file.type == 'video'}"> <h:outputText
@@ -93,33 +87,38 @@
 									value="&lt;source src=&quot;#{file.location}&quot; type=&quot;video/mpeg&quot; /&gt;"
 									escape="false" rendered="#{file.type == 'video'}" /> </video>
 							</h:panelGroup>
+							</div>
 
 							<!--  display image -->
+							<div class="fisier">
 							<h:panelGroup rendered="#{file.type == 'poza'}">
 								<h:graphicImage value="#{file.location}" width="425"
 									height="330" />
 									<br />
-								<h:commandButton value="Set this picture as avatar!">
+								<h:commandButton classStyle="profilePictureButton" value="Make this picture your profile picture" style="padding:5px; border: 1px solid #b2c2bf; background:none; font-style: small-caps; margin-top:2px; margin-bottom:2px; width:300px;">
 									<f:ajax listener="#{settingsMB.changeAvatar(file.id)}"
 										execute="@this" event="click" render="@form"></f:ajax>
 								</h:commandButton>
 							</h:panelGroup>
+							</div>
 
 							<!--  display something else -->
+							<div class="fisier">
 							<h:panelGroup
 								rendered="#{!(file.type == 'video') and !(file.type == 'poza')}">
 								<embed src="#{file.location}" width="425" height="330" />
 							</h:panelGroup>
+							</div>
 
 							<br />
 							<ui:repeat value="#{file.fileTags}" var="tag">
 								#{tag.tag}
-						</ui:repeat>
+							</ui:repeat>
 							<br /> File added by
 							#{userMB.getUserById(file.user.id).firstName} on:
 							#{file.dateAdded} <br /> <br /> <br />
 							<h:commandButton
-								value="#{myFilesMB.isFilePublic(file.id) ? 'Non-Share' : 'Share'}">
+								value="#{myFilesMB.isFilePublic(file.id) ? 'Make it private' : 'Make it public'}" style="padding:5px; border: 1px solid #b2c2bf; background:none; font-style: small-caps; margin-top:2px; margin-bottom:2px; width:300px;">
 								<f:ajax listener="#{myFilesMB.changeAccessType(file.id)}"
 									execute="@this" render="imaginiInYourFiles" event="click" />
 							</h:commandButton>
@@ -129,19 +128,9 @@
 					</ui:repeat>
 
 				</div>
-			</div>
+			</div>	
 
 		</div>
-
-	</div>
-
-
-	<footer>
-	<p>
-		&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan
-		David <br /> All rights reserved<br /> DigiX 2016
-	</p>
-	</footer>
 
 
 

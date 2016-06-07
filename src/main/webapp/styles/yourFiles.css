@@ -1,23 +1,26 @@
 #yourFiles{
-	text-align: center;
-}
-   
-.copertaAlbum {
-	text-align: center;
-	height: 70px;
-	width:150px;
-	border: 1px solid #b2c2bf;
 	float:left;
-	margin-right:20px;
-	margin-bottom:20px;
-	padding-top: 40px;
-	
+	display: inline;
+
 }
 
 .album :hover {
-	color:#3b3a30;
+	color: #3b3a30;
 	background-color: #eaece5;
+	height:10px;
 
+}
+.fisier{
+	width:100px;
+	height:100px;
+	display: inline;
 }
 
 
+.profilePictureButton:focus{
+	outline-color: #b2c2bf;
+}
+.profilePictureButton:hover{
+	outline-color: #b2c2bf;
+	cursor:pointer;
+}

@@ -1,3 +1,122 @@
 .hide {
 	display: none;
 }
+
+
+
+/*  STYLESHEET  */
+
+#updateContainer{
+	text-align: left;
+	height: 500px;
+	font-style: Georgia;
+
+
+	margin-left: -330px;
+	padding: 27px;
+	display: inline-block;
+	position: absolute;
+	width: 840px;
+	background-color: white;
+	border: 1px solid #b2c2bf;
+	margin-bottom: 27px;
+}
+
+button{
+	padding: 5px;
+	border: 1px solid;
+	background-color: none;
+}
+
+.selectOne{
+	margin-right: 20px;
+	background-color: none;
+	padding: 5px;
+}
+
+
+
+.buton{
+	background:none;
+	margin-right:20px;
+	width:300px;
+	margin-left:30px;
+	margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    width: 300px;
+    font-size: 80%;
+    border: 1px solid #b2c2bf;
+    padding: 5px;
+    margin-left: 50px;
+}
+
+.buton:hover{
+	outline-color: #b2c2bf;
+}
+.buton:focus{
+	outline-color: #b2c2bf;
+}
+
+.butonSumbit{
+	padding: 5px;
+	float: right;
+	border: 1px solid black;
+	background:none;
+	font-size: 20px;
+	border:1px solid #b2c2bf;
+}
+.butonSubmit:hover{
+	outline-color: #b2c2bf;
+}
+.butonSubmit:focus{
+	outline-color: #b2c2bf;
+
+}
+
+.text{
+	font-style: Georgia;
+	font-variant: normal;
+	margin-top:2px;
+	margin-bottom: 2px;
+	font-size: 13px;
+	margin-right: 10px;
+	outline: none;
+}
+
+.text:focus{
+	margin:0;
+	outline-color: #b2c2bf;
+	width: 300px;
+	cursor: auto;
+}
+
+
+.pentruSubmit{
+	width:100%;
+	text-align: right;
+	margin-top: 50px;
+	font-size: 13px;
+	background-color: none;
+
+}
+
+input[type=file] {
+	background:none;
+	font-family: Georgia;
+	font-size: 13px;
+}
+
+/*
+
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    letter-spacing: 3px;
+    width: 300px;
+    font-size: 80%;
+    border: 1px solid #b2c2bf;
+    padding: 5px;
+    margin-left: 50px;
+
+*/

@@ -27,7 +27,7 @@
 			<h:inputText id="search" type="text" value="#{searchMB.searchQuery}"
 				styleClass="searchBox" p:placeholder="search on DigiX" />
 			<h:commandButton value="" action="#{searchMB.search}"
-				stlyeClass="butonIdiot" />
+				stlyeClass="butonIdiot" style="padding:0;"/>
 		</h:form>
 	</h:panelGroup> </header>
 
@@ -57,6 +57,10 @@
 
 
 		<div class="continut">
+			<div class="titluFisiere">
+				<p>My list of friends</p>
+			</div>
+
 
 			<ui:repeat value="#{friendsMB.allUsers}" var="friend">
 				<h:form>
@@ -66,8 +70,8 @@
 					<br />
 					
 						<h:outputText value="#{friend.firstName} #{friend.lastName}" />
-					</h:commandLink>
-					<h:commandButton value="Add to friend list!"
+					</h:commandLink><br />
+					<h:commandButton value=" + Add friend" style="padding:5px; border: 1px solid #b2c2bf; background:none; font-style: small-caps; margin-top:2px; margin-bottom:2px; width:200px; margin-bottom: 30px; margin-top:2px;"
 						rendered="#{!friendsMB.areFriends(friend.id)}">&nbsp;
 						<f:ajax listener="#{friendsMB.addToFriendList(friend.id)}"
 							execute="@this" event="click" render="@form"></f:ajax>
@@ -79,13 +83,6 @@
 		</div>
 
 	</div>
-
-	<footer>
-	<p>
-		&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan
-		David <br /> All rights reserved<br /> DigiX 2016
-	</p>
-	</footer>
 
 
 

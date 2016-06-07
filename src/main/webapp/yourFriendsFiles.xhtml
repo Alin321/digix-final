@@ -24,7 +24,7 @@
 	<h:panelGroup id="search" stlye=" border:1px solid black;">
 		<h:form style="width:1000px; display:inline; ">
 			<h:inputText id="search" type="text" value="#{searchMB.searchQuery}" styleClass="searchBox" p:placeholder="search on DigiX"/>
-			<h:commandButton value="" action="#{searchMB.search}" stlyeClass="butonIdiot"/>
+			<h:commandButton value="" action="#{searchMB.search}" stlyeClass="butonIdiot" style="padding:0;"/>
 		</h:form>
 	</h:panelGroup>
 
@@ -57,27 +57,48 @@
 
 
 <div class="continut">
+			<div class="titluFisiere">
+				<p>Check out what your friends posted..</p>
+			</div>
+			<div id="OnDigix">
+				<ui:repeat value="#{userMB.allUserFriendFiles}" var="file">
 
-	<div class="titluFisiere"> <p>My friends files</p></div>
+					<div class="fisiereAfisate">
+						<!--  display video -->
+						<h:panelGroup rendered="#{file.type == 'video'}">
+							<video id="myVideo" width="425" height="330" controls="controls"
+								rendered="#{file.type == 'video'}"> <h:outputText
+								value="&lt;source src=&quot;#{file.location}&quot; type=&quot;video/mp4&quot; /&gt;"
+								escape="false" rendered="#{file.type == 'video'}" /> <h:outputText
+								value="&lt;source src=&quot;#{file.location}&quot; type=&quot;video/mpeg&quot; /&gt;"
+								escape="false" rendered="#{file.type == 'video'}" /> </video>
+						</h:panelGroup>
 
-	
-	<div id="YourFiles">
-		<div class="copertaAlbum"> 	Fotografii </div>
-		<div class="copertaAlbum">	Videoclipuri</div>
-		<div class="copertaAlbum">	Scrisori</div>
-		<div class="copertaAlbum">	Acte</div>
-		<div id="imaginiInYourFiles"> </div>
+						<!--  display image -->
+						<h:panelGroup rendered="#{file.type == 'poza'}">
+							<h:graphicImage value="#{file.location}" width="425" height="330" />
+						</h:panelGroup>
+
+						<!--  display something else -->
+						<h:panelGroup rendered="#{!(file.type == 'video') and !(file.type == 'poza')}">
+							<embed src="#{file.location}" width="425" height="330" />
+						</h:panelGroup>
+
+						<br />
+						<ui:repeat value="#{file.fileTags}" var="tag">
+								#{tag.tag}
+						</ui:repeat>
+						<br /> File added by
+						#{userMB.getUserById(file.user.id).firstName} on:
+						#{file.dateAdded} <br /> <br />
+					</div>
+
+				</ui:repeat>
+			</div>
+
+		</div>
+
 	</div>
-
-</div>
-
-</div>
-
-<footer>
-	<p>&#169; Andreea Sacara-Munteanu. Razvan Sturza. Alin Cuzuc. Stefan David <br />
-	All rights reserved<br /> DigiX 2016</p>
-</footer>
-
 
 
 

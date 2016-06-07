@@ -41,9 +41,7 @@ header {
 
 
 /*--------------------------------------------------------------HEADER--------------------------------------------------------------SEARCH*/
-span{
-	display: none;
-}
+
 #search {
 	display:none;
 	display:inline;
@@ -53,9 +51,13 @@ span{
 
 }
 
-.butonIdiot{ /* de ce pusca mea nu merge cacatu asta */
+.butonIdiot{ /* !!!!!!!!!!!!!!!!!!!!!!!!!!!de ce pana mea nu dispare prostia asta de buton */
 	display: none !important;
 	float:right;
+}
+#butonInvizibil{
+	background:none;
+	border:0;
 }
 
 .searchBox {
@@ -87,16 +89,16 @@ span{
 	-moz-transition: all .5s;
 	transition: all .5s;
 }
-input:-webkit-search-decoration,
-input:-webkit-search-cancel-button {
+.searchBox:-webkit-search-decoration,
+.searchBox:-webkit-search-cancel-button {
 	display: none;
 }
-input:-webkit-autofill {
+.searchBox:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
    
 
-input[type=text]:focus{
+.searchBox:focus{
 	-webkit-border-radius: 5px; 
     -moz-border-radius: 5px; 
     border-radius: 5px;
@@ -118,7 +120,6 @@ input[type=text]:focus{
 	clear: both;
 	display: inline-block;
 	width: 1155px;
-	height: 700px;
 }
 
 
@@ -132,9 +133,7 @@ input[type=text]:focus{
 	display: inline-block;
 	float:left;
 	position: fixed;
-	margin-left: -600px;
-
-	
+	margin-left: -600px;	
 }
 
 #navigare{ 
@@ -155,25 +154,27 @@ input[type=text]:focus{
 }
 
 
-
+.continut::-webkit-scrollbar { 
+    display: none; 
+}
 
 /*----------------------BODY--------------CONTINUT*/
 
 
 .continut{
-	overflow: scroll;
 	margin-left: -330px;
 	padding: 27px;
 	display: inline-block;
 	position: absolute;
 	width: 840px;
 	background-color: white;
-	max-height: 700px;
 	border: 1px solid #b2c2bf;
 	text-align: center;
 	font-variant: normal;
 	font-size: 13px;
 	min-height: 600px;
+	height:	auto;
+	margin-bottom: 50px;
 }
 
 /*
@@ -229,4 +230,7 @@ p{
 	border:1px solid #b2c2bf;
 	margin-bottom:20px;
 	margin-top:20px;
+}
+input[type=submit]{
+	border:0;
 }

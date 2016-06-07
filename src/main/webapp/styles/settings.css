@@ -9,7 +9,6 @@
 }
 
 input[type=submit]{
-    background:#ccc; 
     border:0 none;
     cursor:pointer;
     -webkit-border-radius: 5px;
